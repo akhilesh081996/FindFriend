@@ -1,0 +1,44 @@
+<ion-header class="header_sec" no-padding>
+    <ion-toolbar class="ion-no-padding">
+        <ion-buttons slot="start" class="back_buttons">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+
+        <ion-title>Notifications</ion-title>
+        <ion-icon slot="end" name="trash" (click)="presentAlert()"></ion-icon>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-row *ngIf="!ready">
+        <ion-col size="12" text-center>
+            <ion-spinner class="spinner"></ion-spinner>
+        </ion-col>
+    </ion-row>
+    <ion-grid class="meetourteam" *ngIf="ready">
+
+        <!-- <ion-row >
+            <ion-col size="12">
+               
+               
+
+                
+            </ion-col>
+        </ion-row> -->
+
+        <ion-list>
+            <ion-item detail="false" *ngFor="let notification of notifications" [routerLink]="['/booking2/'+notification.post_id]">
+                <ion-label>
+                    <div class="toppp">
+                        <h5>{{notification.title}}</h5>
+                        <span>{{notification.date}}</span>
+                    </div>
+                    <p>{{notification.message}}</p>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+
+    </ion-grid>
+
+
+</ion-content>

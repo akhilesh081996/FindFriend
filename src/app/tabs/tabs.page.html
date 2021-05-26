@@ -1,0 +1,31 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="searchlist">
+      <img src="assets/imgs/bracket.svg" class="mobile">
+      <img src="assets/imgs/bracket-1.svg" class="desktop">
+    </ion-tab-button>
+
+    <ion-tab-button tab="booking">
+      <img src="assets/imgs/calendar-gray.svg" class="mobile">
+      <img src="assets/imgs/calendar-orange.svg" class="desktop">
+      <!-- <ion-label>Appointments</ion-label> -->
+    </ion-tab-button>
+    <ion-tab-button tab="searchfilter">
+      <img src="assets/imgs/person.svg" class="mobile">
+      <img src="assets/imgs/person-1.svg" class="desktop">
+      <!-- <ion-label>Messages</ion-label> -->
+    </ion-tab-button>
+    <ion-tab-button tab="messages">
+      <img src="assets/imgs/message.svg" class="mobile">
+      <img src="assets/imgs/message-1.svg" class="desktop">
+      <!-- <ion-label>Messages</ion-label> -->
+    </ion-tab-button>
+
+    <ion-tab-button (click)="toggleMenu()">
+      <img src="assets/imgs/menu.svg" class="mobile">
+      <img src="assets/imgs/menu-1.svg" class="desktop">
+     </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

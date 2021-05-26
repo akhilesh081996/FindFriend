@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon (click)="back()" slot="start" name="arrow-round-back"></ion-icon>
+    <ion-title>Write Review</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="user-rating">
+        <h5>Rating</h5>
+    <div class="user-rating-inner">        
+        <ion-rating 
+        size="default" 
+        (rateChange)="onModelChange($event)">
+        </ion-rating>                
+    </div>    
+    <textarea [(ngModel)]="review"></textarea>     
+    <ion-button class="submit-review" (click)="submit()">Submit</ion-button>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

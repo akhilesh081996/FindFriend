@@ -1,0 +1,149 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col size="12" class="ion-no-padding">
+      <ion-slides #slides pager="true" >
+
+        <ion-slide>
+          <div class="slide">
+            <img src="assets/imgs/get-started-new.jpg"/>
+            <div class="slide-content">
+              <h2>Get started</h2>
+            <p>Find A Friend has two options: to find a friend or to be a friend. Once you finish setting up your account, you’ll be able to switch back and forth between the two. This is not intended to be a dating app, but as a way to meet people without all the awkwardness. You must be 18 years old to use this app.</p>
+            <ion-button (click)="slides.slideNext()"><span><ion-icon src="assets/imgs/right-arrow.svg" slot="start"></ion-icon></span>Continue</ion-button>
+            </div>            
+          </div>
+        </ion-slide>
+
+        <ion-slide>
+          <div class="slide">
+            <!-- <ion-button class="back-btn" ><ion-icon src="assets/imgs/left-arrow.svg" (click)="slides.slidePrev()"></ion-icon></ion-button> -->
+            <img src="assets/imgs/not-a-datting-new.jpg"/>
+            <div class="slide-content">
+              <h2>This is not a Dating app</h2>
+            <p>Your safety is most important to us here at FindAFriend. That is why it is important to keep meetings platonic and friendly to ensure both parties feel comfortable.</p>
+            <ion-button (click)="slides.slideNext()"><span><ion-icon src="assets/imgs/right-arrow.svg" slot="start"></ion-icon></span>Continue</ion-button>
+            </div>            
+          </div>
+        </ion-slide>
+
+        <ion-slide>
+          <div class="slide">
+            <!-- <ion-button class="back-btn" ><ion-icon src="assets/imgs/left-arrow.svg" (click)="slides.slidePrev()"></ion-icon></ion-button> -->
+            <img src="assets/imgs/common-gallery.svg"/>
+            <div class="slide-content">
+              <h2>Common Courtesy</h2>
+            <p>Remember that you invited this person out, so the bill falls on you (within reason). Buy them a few drinks, pay for their dinner, or treat them to a movie.</p>
+            <ion-button (click)="slides.slideNext()"><span><ion-icon src="assets/imgs/right-arrow.svg" slot="start"></ion-icon></span>Continue</ion-button>
+            </div>            
+          </div>
+        </ion-slide>
+
+        <ion-slide>
+          <div class="slide">
+            <!-- <ion-button class="back-btn" ><ion-icon src="assets/imgs/left-arrow.svg" (click)="slides.slidePrev()"> </ion-icon></ion-button> -->
+            <img src="assets/imgs/common-intrest-new.jpg"/>
+            <div class="slide-content">
+              <h2>Your common interest</h2>
+              <h6>(You can change this later)</h6>
+            <p>Be specific with your interests when completing your profile and when planning activities. This is the best way to find what you are looking for in a friend and/or be found.</p>
+           
+          </div>   
+            <div class="common-interest" >
+              <ion-list>
+                  <ion-item>
+                    <ion-label>Foodie</ion-label>
+                    <ion-checkbox  slot="start" value="Foodie" (ionChange)="select($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Sports Fan</ion-label>
+                    <ion-checkbox  slot="start" value="Sports Fan" (ionChange)="select($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Great Outdoors</ion-label>
+                    <ion-checkbox  slot="start" value="Great Outdoors" (ionChange)="select($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Art Lover</ion-label>
+                    <ion-checkbox  slot="start" value="Art Lover" (ionChange)="select($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Animal Lover</ion-label>
+                    <ion-checkbox  slot="start" value="Animal Lover" (ionChange)="select($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Socialite</ion-label>
+                    <ion-checkbox  slot="start" value="Socialite" (ionChange)="select($event)"></ion-checkbox>
+                  </ion-item>     
+                  <ion-item>
+                    <ion-label>Athletic</ion-label>
+                    <ion-checkbox  slot="start" value="Athletic" (ionChange)="select($event)"></ion-checkbox>
+                  </ion-item>  
+                  <ion-item>
+                    <ion-label>Dancing & Nightlife</ion-label>
+                    <ion-checkbox  slot="start" value="Dancing & Nightlife" (ionChange)="select($event)"></ion-checkbox>
+                  </ion-item>  
+                  <ion-item>
+                    <ion-label>More Coffee</ion-label>
+                    <ion-checkbox  slot="start" value="More Coffee" (ionChange)="select($event)"></ion-checkbox>
+                  </ion-item>     
+                  <ion-item>
+                    <ion-label>Theater Nerd</ion-label>
+                    <ion-checkbox  slot="start" value="Theater Nerd" (ionChange)="select($event)"></ion-checkbox>
+                  </ion-item>  
+                  </ion-list>
+                  <ion-button (click)="slides.slideNext()"><span><ion-icon src="assets/imgs/right-arrow.svg" slot="start"></ion-icon></span>Continue</ion-button>   
+                </div>   
+          </div>
+        </ion-slide>
+
+
+        <ion-slide >
+          <div class="slide offer-slide">
+            <!-- <ion-button class="back-btn" ><ion-icon src="assets/imgs/left-arrow.svg" (click)="slides.slidePrev()"></ion-icon></ion-button> -->
+            <img src="assets/imgs/offer-services-new.jpg"/>
+            <div class="slide-content offer" >
+              <h2>Will you offer services?</h2>
+              <h6>(This is optional for users who want to offer
+                their services for doing various activities)</h6>
+              <p>From your home screen, you can choose to 
+                offer services by clicking on Be A Friend.
+                From here you can:</p>
+              <section>
+               <ul>
+                 <li><p>Set up the days and times you are available to provide your services.</p></li>
+                 <li><p>Edit your common interest to help users with your common interest find you.</p></li>
+                 <li><p>Set up your bio so you can present yourself to users in a way that is unique to you</p></li>
+                 <li><p>Select the activities that you will offer.</p></li>
+               </ul> 
+              </section> 
+          </div>   
+            <div class="common-interest" >
+                  <ion-button (click)="slides.slideNext()"><span><ion-icon src="assets/imgs/right-arrow.svg" slot="start"></ion-icon></span>Continue</ion-button>   
+                </div>   
+          </div>
+        </ion-slide>
+
+        
+        <ion-slide>
+          <div class="slide">
+            <!-- <ion-button class="back-btn" ><ion-icon src="assets/imgs/left-arrow.svg" (click)="slides.slidePrev()"></ion-icon></ion-button> -->
+            <img src="assets/imgs/finish-new.jpg"/>
+            <div class="slide-content">
+              <h2>Finished</h2>
+            <p>We would love to welcome you to Find A Friend. We are so excited for you to experience what we have to offer and make some great memories along the way!</p>
+            <ion-button (click)="goto()"><span><ion-icon src="assets/imgs/right-arrow.svg" slot="start"></ion-icon></span>Set up my profile</ion-button>
+            </div>            
+          </div>
+        </ion-slide>
+        </ion-slides>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

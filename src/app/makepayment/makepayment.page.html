@@ -1,0 +1,58 @@
+<ion-header class="header_sec" no-padding>
+  <ion-toolbar class="ion-no-padding">
+      <ion-buttons slot="start" (click)="back()" class="back_buttons">
+              <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-buttons>
+      <ion-title>Make Payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+     <ion-grid class="ion-padding text_sec">
+      <ion-row class="appoint_sec">
+          <ion-col size="12">
+              <span>Acitivity</span>
+              <p>{{cart?.activity}}</p>
+          </ion-col>
+          <ion-col size="12">
+              <span>Location</span>
+              <p>{{cart?.location}}</p>
+          </ion-col>
+          <ion-col size="12">
+              <span>Time to spend with Friend</span>
+              <p>{{cart?.minimum_time_to_spend_with_Friend}}</p>
+          </ion-col>
+          <ion-col size="12" class="total-price">
+              <span>Total Price</span>
+              <p>$ {{totalpricecal}}</p>
+          </ion-col>
+      </ion-row>
+  <h4>My Cards</h4>
+  <ion-row *ngIf="!Cardready">
+      <ion-col class="ion-text-center">
+          <ion-spinner name="lines"></ion-spinner>
+      </ion-col>
+  </ion-row>
+  <ion-row class="btn_sec" *ngIf="Cardready">
+      <ion-col size="12" class="ion-text-center">
+          <span [routerLink]="['/billing/forpayment/invoice']">
+            Add card
+            <ion-icon name="add">
+          </ion-icon>
+          </span>
+          <ion-radio-group *ngIf="Cardready" class="cardgroup" [(ngModel)]="card">
+              <ion-item *ngFor="let c of cards">
+                  <ion-label>{{c.brand}} - {{c.last4}}</ion-label>
+                  <ion-radio slot="start" value="{{c.id}}" (ionSelect)="CardradioChecked(c.id)"></ion-radio>
+              </ion-item>
+          </ion-radio-group>
+      </ion-col>
+  </ion-row>
+
+
+      <ion-row class="schedule">
+          <ion-col size="12" class="ion-textcenter">
+              <ion-button (click)="pay()">Schedule</ion-button>
+          </ion-col>
+      </ion-row>   
+</ion-grid>
+</ion-content>

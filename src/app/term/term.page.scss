@@ -1,0 +1,24 @@
+.header_sec {
+    // min-height: 55px;
+    ion-toolbar {
+        --background: transparent;
+        background-image: url(/assets/newimage/top-bg.png);
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    ion-title {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0;
+        color: #fff;
+        text-transform: uppercase;
+    }
+    .back_buttons {
+        margin-left: 12px;
+    }
+}

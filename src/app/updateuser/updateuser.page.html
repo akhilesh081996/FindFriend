@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-buttons>
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+</ion-header>
+<ion-content class="bg_img">
+    <ion-grid>
+        <ion-row class="logo_sec">
+            <ion-col size="12" class="input_sec">
+                <!-- <p class="sign_sec">Sign Up</p> -->
+                <ion-item class="ion-no-padding first_item" lines="none">
+                    <img src="assets/newimage/profile.png">
+                    <ion-label>
+                        <ion-input type="text" placeholder="First Name"></ion-input>
+                    </ion-label>
+                </ion-item>
+
+                <ion-item class="ion-no-padding first_item" lines="none">
+                    <img src="assets/newimage/profile.png">
+                    <ion-label>
+                        <ion-input type="text" placeholder="Last Name"></ion-input>
+                    </ion-label>
+                </ion-item>
+                <ion-item class="ion-no-padding first_item" lines="none">
+                    <img src="assets/newimage/profile.png">
+                    <ion-label>
+                        <ion-input type="text" placeholder="city"></ion-input>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <h6>Please give a brief overview about your Hobbies.</h6>
+                <ion-textarea placeholder="A little about me" ></ion-textarea>
+            </ion-col>
+            <ion-col size="12" class="btn_sec">
+                <ion-button shape="round" type="submit" expand="block" class="continue">Update</ion-button>
+                <!-- <ion-button shape="round" type="submit" [disabled]="!signupForm.valid" expand="block" class="continue">Next</ion-button> -->
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

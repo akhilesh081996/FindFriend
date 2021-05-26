@@ -1,0 +1,40 @@
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row class="logo_sec bg_img">
+      <ion-col size="12">
+         <h6>Upload Profile Photo</h6>
+         <img src="assets/imgs/72Asset 3.png" class="img_user">
+         <p>This photo will help your instructor identify you.</p>
+      </ion-col>
+    </ion-row>
+
+  <ion-row class="gallery_list">
+    <ion-col size="12">
+      <h6>Add A Gallery</h6>
+      <ul>
+        <li *ngFor="let img of gallery; index as pos">
+          <!-- <img src="assets/imgs/72Asset 3.png">  -->
+          <ion-img [src]="img"></ion-img>
+          <!--
+          <ion-icon slot="icon-only" name="trash" (click)="deleteImage(img, pos)"></ion-icon>
+          -->
+        </li>
+        <!-- <li>
+          <img src="assets/imgs/72Asset 3.png"> 
+        </li> -->
+        <li (click)="selectImage('trainerGallery')">
+          <img src="assets/imgs/add_img.png"> 
+        </li>
+      </ul>
+    </ion-col>
+  </ion-row>
+  <ion-row class="btn_sec">
+    <ion-col size="6">
+      <ion-button routerLink="/interest"><ion-icon name="arrow-back"></ion-icon>Back</ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button (click)="gotonext()">Next</ion-button>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+</ion-content>

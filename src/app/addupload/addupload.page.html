@@ -1,0 +1,187 @@
+<!-- <ion-header class="header_sec" no-padding>
+    <ion-toolbar class="ion-no-padding">
+        <ion-buttons slot="start" >
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Edit Profile</ion-title>
+    </ion-toolbar>
+</ion-header> -->
+<ion-header class="header_sec" no-padding>
+    <ion-toolbar class="ion-no-padding">
+        <ion-buttons slot="start" class="back_buttons" (click)="back()">
+                <ion-icon src="assets/imgs/arrow-left.svg"></ion-icon>
+        </ion-buttons>
+        <ion-title>Edit Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <div class="bg_shop" *ngIf="ready">
+        <img src="assets/newimage/top-bg.png" class="img_sec">
+        <div class="edit-profile-pic">
+            <img [src]="userImage" (click)="selectImage('userimage')" class="inner_img">
+            <ion-icon src="assets/newimage/edit-camera.svg" (click)="selectImage('userimage')"></ion-icon>
+        </div>
+    </div>
+
+    <form [formGroup]="editform" (ngSubmit)="doEdit(editform.value)">
+        <ion-grid>
+            <ion-row class="shop_sec" *ngIf="ready">
+                <ion-col size="12">
+                    <ion-label position="stacked">Full Name</ion-label>
+                    <ion-input placeholder="" formControlName="shop_name"></ion-input>
+                </ion-col>
+                <!-- <ion-col size="12">
+                    <ion-label position="stacked">Last Name</ion-label>
+                    <ion-input placeholder="" formControlName="last_name"></ion-input>
+                </ion-col> -->
+                
+                <!-- <ion-col size="12">
+                    <ion-label position="stacked">Street One</ion-label>
+                    <ion-input placeholder="Street One" formControlName="address1"></ion-input>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-label position="stacked">Street Two</ion-label>
+                    <ion-input placeholder="Street Two" formControlName="address2"></ion-input>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-label position="stacked">City</ion-label>
+                    <ion-input placeholder="city" formControlName="city"></ion-input>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-label position="stacked">State</ion-label>
+                    <ion-select placeholder="State" formControlName="state">
+                        <ion-select-option value="Alabama">Alabama</ion-select-option>
+                        <ion-select-option value="Alaska">Alaska</ion-select-option>
+                        <ion-select-option value="Arizona">Arizona</ion-select-option>
+                        <ion-select-option value="Arkansas">Arkansas</ion-select-option>
+                        <ion-select-option value="California">California</ion-select-option>
+                        <ion-select-option value="Colorado">Colorado</ion-select-option>
+                        <ion-select-option value="Connecticut">Connecticut</ion-select-option>
+                        <ion-select-option value="Delaware">Delaware</ion-select-option>
+                        <ion-select-option value="Florida">Florida</ion-select-option>
+                        <ion-select-option value="Georgia">Georgia</ion-select-option>
+                        <ion-select-option value="Hawaii">Hawaii</ion-select-option>
+                        <ion-select-option value="Idaho">Idaho</ion-select-option>
+                        <ion-select-option value="Illinois">Illinois</ion-select-option>
+                        <ion-select-option value="Indiana">Indiana</ion-select-option>
+                        <ion-select-option value="Iowa">Iowa</ion-select-option>
+                        <ion-select-option value="Kansas">Kansas</ion-select-option>
+                        <ion-select-option value="Kentucky">Kentucky</ion-select-option>
+                        <ion-select-option value="Louisiana">Louisiana</ion-select-option>
+                        <ion-select-option value="Maine">Maine</ion-select-option>
+                        <ion-select-option value="Maryland">Maryland</ion-select-option>
+                        <ion-select-option value="Massachusetts">Massachusetts</ion-select-option>
+                        <ion-select-option value="Michigan">Michigan</ion-select-option>
+                        <ion-select-option value="Minnesota">Minnesota</ion-select-option>
+                        <ion-select-option value="Mississippi">Mississippi</ion-select-option>
+                        <ion-select-option value="Missouri">Missouri</ion-select-option>
+                        <ion-select-option value="Montana">Montana</ion-select-option>
+                        <ion-select-option value="Nebraska">Nebraska</ion-select-option>
+                        <ion-select-option value="Nevada">Nevada</ion-select-option>
+                        <ion-select-option value="New Hampshire">New Hampshire</ion-select-option>
+                        <ion-select-option value="New Jersey">New Jersey</ion-select-option>
+                        <ion-select-option value="New Mexico">New Mexico</ion-select-option>
+                        <ion-select-option value="New York">New York</ion-select-option>
+                        <ion-select-option value="North Carolina">North Carolina</ion-select-option>
+                        <ion-select-option value="North Dakota">North Dakota</ion-select-option>
+                        <ion-select-option value="Ohio">Ohio</ion-select-option>
+                        <ion-select-option value="Oklahoma">Oklahoma</ion-select-option>
+                        <ion-select-option value="Oregon">Oregon</ion-select-option>
+                        <ion-select-option value="Pennsylvania">Pennsylvania</ion-select-option>
+                        <ion-select-option value="Rhode Island">Rhode Island</ion-select-option>
+                        <ion-select-option value="South Carolina">South Carolina</ion-select-option>
+                        <ion-select-option value="South Dakota">South Dakota</ion-select-option>
+                        <ion-select-option value="Tennessee">Tennessee</ion-select-option>
+                        <ion-select-option value="Texas">Texas</ion-select-option>
+                        <ion-select-option value="Utah">Utah</ion-select-option>
+                        <ion-select-option value="Vermont">Vermont</ion-select-option>
+                        <ion-select-option value="Virginia">Virginia</ion-select-option>
+                        <ion-select-option value="Washington">Washington</ion-select-option>
+                        <ion-select-option value="West Virginia">West Virginia</ion-select-option>
+                        <ion-select-option value="Wisconsin">Wisconsin</ion-select-option>
+                        <ion-select-option value="Wyoming">Wyoming</ion-select-option>
+                    </ion-select>
+
+                </ion-col>
+                <ion-col size="6">
+                    <ion-label position="stacked">Zip</ion-label>
+                    <ion-input placeholder="Zip" formControlName="zipcode"></ion-input>
+
+                </ion-col> -->
+                <ion-col size="12">
+                    <ion-label position="stacked">Phone</ion-label>
+                    <ion-input placeholder="Phone" formControlName="phone"></ion-input>
+                </ion-col>
+
+                <ion-col size="12">
+                    <ion-label position="stacked">Email</ion-label>
+                    <ion-input placeholder="Email" formControlName="email" disabled></ion-input>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-label position="stacked">Full Address</ion-label>
+                    <ion-textarea placeholder="Address" rows="20" cols="50" formControlName="shop_location"></ion-textarea>
+                </ion-col>
+                <!-- <ion-col size="12">
+                    <ion-label position="stacked">About</ion-label>
+                    <ion-textarea placeholder="about" rows="20" cols="50" formControlName="shop_about"></ion-textarea>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-label position="stacked">Snippets</ion-label>
+                    <ion-textarea placeholder="Notes" rows="20" cols="50" formControlName="snipet"></ion-textarea>
+                </ion-col> -->
+
+            </ion-row>
+            <ion-row>
+                <!--
+    <ion-col size="12">
+        <h3 text-center>Collections Gallery</h3>
+    </ion-col>
+    <ion-col size="12">
+      
+        <ion-list>
+            <ion-item *ngFor="let img of gallery; index as pos" text-wrap>
+                <ion-thumbnail slot="start">
+                    <ion-img [src]="img.thumb"></ion-img>
+                </ion-thumbnail>
+                <ion-button slot="end" fill="clear" (click)="deleteImage(img)">
+                    <ion-icon slot="icon-only" name="trash"></ion-icon>
+                </ion-button>
+            </ion-item>
+        </ion-list>
+    </ion-col>
+
+    <ion-col size="12">
+                  
+        <ion-grid class="gallery_box">
+            <ion-row text-wrap>
+                <ion-col size="3" *ngFor="let img of gallery; index as pos">
+                    <div class="gallery">
+                        <ion-img [src]="img.thumb"></ion-img>
+                        <ion-icon slot="icon-only" name="trash" (click)="deleteImage(img, pos)"></ion-icon>
+                    </div>
+                </ion-col>
+            
+            </ion-row>
+        </ion-grid>
+    </ion-col>
+
+
+    
+    <ion-col size="12">
+        <ion-button fill="clear" expand="full" class="select_img" (click)="selectImage('trainerGallery')">
+            <ion-icon slot="start" name="camera"></ion-icon>
+            Select File
+        </ion-button>
+    </ion-col>
+      -->
+                <ion-col size="12">
+                    <ion-button expand="block" type="submit" [disabled]="!editform.valid" class="continue">Update</ion-button>
+                </ion-col>
+
+            </ion-row>
+
+
+        </ion-grid>
+    </form>
+</ion-content>

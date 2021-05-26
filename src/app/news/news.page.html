@@ -1,0 +1,60 @@
+<ion-header class="header_sec" no-padding>
+  <ion-toolbar class="ion-no-padding">
+    <ion-buttons slot="start" class="back_buttons">
+      <ion-back-button defaultHref="/">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>News</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <ion-row *ngIf="!readyposts">
+    <ion-col class="ion-text-center">
+      <ion-spinner name="lines"></ion-spinner>
+    </ion-col>
+  </ion-row>
+  <ion-grid class="ion-no-padding" *ngIf="readyposts">
+    <ion-row class="video_sec" [routerLink]="['/singlefeed',posts[0].id]">
+      <ion-col size="12" class="ion-no-padding">
+        <img *ngIf="posts[0].jetpack_featured_media_url" src="{{posts[0].jetpack_featured_media_url}}"
+          class="video_img">
+        <ion-icon src="assets/icon/_ionicons_svg_md-arrow-dropright.svg" class="drop_arrow"></ion-icon>
+        <div class="date_sec">
+          <h5 [innerHTML]="posts[0].title.rendered"></h5>
+          <p><span>
+              <ion-icon name="calendar"></ion-icon>
+            </span>{{posts[0].date}}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="message_list_sec" padding *ngFor="let feed of posts" [routerLink]="['/singlefeed',feed.id]"
+      routerDirection="forward">
+      <ion-col size="4">
+        <img *ngIf="feed.jetpack_featured_media_url" src="{{feed.jetpack_featured_media_url}}">
+      </ion-col>
+      <ion-col size="7">
+        <h3 [innerHTML]="feed.title.rendered"></h3>
+        <p [innerHTML]="feed.excerpt.rendered"></p>
+      </ion-col>
+      <ion-col size="1" class="drop_arrow">
+        <ion-icon src="assets/icon/_ionicons_svg_ios-arrow-forward (3).svg"></ion-icon>
+      </ion-col>
+      <div class="date_sec_new">
+        <p class="date">{{feed.date}}</p>
+      </div>
+    </ion-row>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)">
+      <ion-infinite-scroll-content loadingText="Loading more news...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+  </ion-grid>
+
+</ion-content>

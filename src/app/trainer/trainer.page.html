@@ -1,0 +1,221 @@
+<ion-header class="header_sec" no-padding>
+    <ion-toolbar class="ion-no-padding">
+        <ion-buttons slot="start" class="back_buttons" (click)="back()">
+            <ion-icon name="arrow-round-back"></ion-icon>
+        </ion-buttons>
+        <!-- <ion-buttons slot="end">
+            <ion-icon name="notifications"></ion-icon>
+        </ion-buttons> -->
+        <!-- <ion-title>Trainer</ion-title> -->
+    </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content #content forceOverscroll="false">
+
+    <ion-row class="user_row">
+        <ion-col size="12">
+            <img src="assets/newimage/top-bg.png" class="cover_img">
+            <div class="user_picc" *ngIf="ready">
+                <img src="{{user_info?.userImage}}" class="inner_img">
+            </div>
+        </ion-col>
+    </ion-row>
+    <div class="two_icons">
+        <!-- <img src="assets/imgs/72Asset 1.png" class="assets1" (click)="sendToMessage(userProfile)">
+        <img src="assets/imgs/72Asset 2.png" class="assets2"> -->
+        <ion-icon *ngIf="sameuser == false" name="chatbubbles" class="assets1" (click)="sendToMessage(userProfile)"></ion-icon>
+        <ion-icon *ngIf="sameuser == false" name="calendar" class="assets2" routerLink="/tabs/booking"></ion-icon>
+    </div>
+    <ion-grid class="barber_pro" *ngIf="ready">
+        <ion-row class="User_details">
+            <ion-col size="12">
+                <h3>{{user_info?.shop_name}}</h3>
+                <!-- <span><ion-icon name="star"></ion-icon>4.5(153)</span> -->
+            </ion-col>
+
+        </ion-row>
+        <ion-row class="contact_img" >
+
+            <ion-col size="12" class="about-header">
+                <!-- <p class="time_sec">{{user_info?.price_per_hour}}<span>/hr</span></p> -->
+                <p class="rate_sec" (click)="scrollabout()">About Me</p>
+                <p class="rate_sec" (click)="scrollAvailability()">Availability</p>
+                <p class="rate_sec" *ngIf="type == 'public' && user_info?.fav == '1'" (click)="addfav(user_info?.user_id,0)">Remove from Favorites</p>
+                <p class="rate_sec" *ngIf="type == 'public' && user_info?.fav == '0'" (click)="addfav(user_info?.user_id,1)">Add to Favorites</p>
+                <p class="rate_sec" *ngIf="type == 'private'" (click)="viewfav()">View Favorites</p>
+            </ion-col>
+            <!-- <ion-col size="4" class="ion-text-center"> -->
+                <!-- <img src="assets/imgs/data.png"> -->
+                <!-- <p>Availability</p> -->
+            <!-- </ion-col> -->
+            <!-- <ion-col size="4" class="ion-text-center"> -->
+                <!-- <img src="assets/imgs/pin.png"> -->
+                <!-- <p>Add to Favorites</p> -->
+            <!-- </ion-col> -->
+        </ion-row>
+        <!-- <ion-row class="contact_img" *ngIf="sameuser == false">
+
+                <ion-col size="4" class="ion-text-center">
+                    <p class="time_sec">{{user_info?.price_per_hour}}<span>/hr</span></p>
+                    <p class="rate_sec">Rate</p>
+                </ion-col>
+                <ion-col size="4" class="ion-text-center">
+                    <img src="assets/imgs/data.png">
+                    <p>Work</p>
+                </ion-col>
+                <ion-col size="4" class="ion-text-center">
+                    <img src="assets/imgs/pin.png">
+                    <p>{{user_info.shop_address1}} {{user_info.shop_address2}} {{user_info.shop_city}} {{user_info.shop_state}}</p>
+                </ion-col>
+            </ion-row> -->
+
+        <ion-row class="shop_sec" >
+                <ion-col size="12" *ngIf="About">
+                        <h5>About</h5>
+                        <p class="about_com">{{user_info?.shop_about}}</p>
+                        <h5 *ngIf="user_info?.Political_Party">Political Party</h5>
+                        <p class="about_com" *ngIf="user_info?.Political_Party">{{user_info?.Political_Party}}</p>
+
+                        <h5 *ngIf="user_info?.Marital_Status">Marital Status</h5>
+                        <p class="about_com" *ngIf="user_info?.Marital_Status">{{user_info?.Marital_Status}}</p>
+
+                        <h5 *ngIf="user_info?.Religion">Religion</h5>
+                        <p class="about_com" *ngIf="user_info?.Religion">{{user_info?.Religion}}</p>
+                        
+                        <h5 *ngIf="user_info?.Dating_Preferences">Dating Preferences</h5>
+                        <p class="about_com" *ngIf="user_info?.Dating_Preferences">{{user_info?.Dating_Preferences}}</p>
+
+                        <h5 *ngIf="user_info?.Do_you_read">Do you read</h5>
+                        <p class="about_com" *ngIf="user_info?.Do_you_read">{{user_info?.Do_you_read}}</p>
+
+                        <h5 *ngIf="user_info?.Do_you_watch_TV">Do you watch TV</h5>
+                        <p class="about_com" *ngIf="user_info?.Do_you_watch_TV">{{user_info?.Do_you_watch_TV}}</p>
+
+                        <h5 *ngIf="user_info?.Do_you_have_kids">Do you have kids</h5>
+                        <p class="about_com" *ngIf="user_info?.Do_you_have_kids">{{user_info?.Do_you_have_kids}}</p>
+
+                        <h5 *ngIf="user_info?.Do_you_play_games">Do you play games</h5>
+                        <p class="about_com" *ngIf="user_info?.Do_you_play_games">{{user_info?.Do_you_play_games}}</p>
+
+                        <h5 *ngIf="user_info?.Are_you_Shy">Are you Shy</h5>
+                        <p class="about_com" *ngIf="user_info?.Are_you_Shy">{{user_info?.Are_you_Shy}}</p>
+
+                        <h5 *ngIf="user_info?.Are_you_outgoing">Are you outgoing</h5>
+                        <p class="about_com" *ngIf="user_info?.Are_you_outgoing">{{user_info?.Are_you_outgoing}}</p>
+
+                        <h5 *ngIf="user_info?.Are_you_Adventurous">Are you Adventurous</h5>
+                        <p class="about_com" *ngIf="user_info?.Are_you_Adventurous">{{user_info?.Are_you_Adventurous}}</p>
+
+                        <h5 *ngIf="user_info?.Do_you_have_a_sense_of_humor">Do you have a sense of humor</h5>
+                        <p class="about_com" *ngIf="user_info?.Do_you_have_a_sense_of_humor">{{user_info?.Do_you_have_a_sense_of_humor}}</p>
+
+                    </ion-col>
+
+            <ion-col size="12" *ngIf="Availability">
+                <h5>Availability</h5>
+                <ion-row class="day_sec">
+                    <ion-col size="4">
+                        <p [ngClass]="is_monday?'success':'error'">Monday</p>
+                        <p [ngClass]="is_tuesday?'success':'error'">Tuesday</p>
+                        <p [ngClass]="is_wednesday?'success':'error'">Wedesday</p>
+                        <p [ngClass]="is_thursday?'success':'error'">Thursday</p>
+                        <p [ngClass]="is_friday?'success':'error'">Friday</p>
+                        <p [ngClass]="is_saturdy?'success':'error'">Saturday</p>
+                        <p [ngClass]="is_sunday?'success':'error'">Sunday</p>
+                    </ion-col>
+                    <ion-col size="8">
+                        <p *ngIf="is_monday">{{monday.nfrom_time}}- {{monday.nto_time}}</p>
+                        <p *ngIf="!is_monday" class="error">Closed</p>
+                        <p *ngIf="is_tuesday">{{tuesday.nfrom_time}} - {{tuesday.nto_time}}</p>
+                        <p *ngIf="!is_tuesday" class="error">Closed</p>
+                        <p *ngIf="is_wednesday">{{wednesday.nfrom_time}} - {{wednesday.nto_time}}</p>
+                        <p *ngIf="!is_wednesday" class="error">Closed</p>
+                        <p *ngIf="is_thursday">{{thursday.nfrom_time}} - {{thursday.nto_time}}</p>
+                        <p *ngIf="!is_thursday" class="error">Closed</p>
+                        <p *ngIf="is_friday">{{friday.nfrom_time}} - {{friday.nto_time}}</p>
+                        <p *ngIf="!is_friday" class="error">Closed</p>
+                        <p *ngIf="is_saturdy">{{saturdy.nfrom_time}} - {{saturdy.nto_time}}</p>
+                        <p *ngIf="!is_saturdy" class="error">Closed</p>
+                        <p *ngIf="is_sunday">{{sunday.nfrom_time}} - {{sunday.nto_time}}</p>
+                        <p *ngIf="!is_sunday" class="error">Closed</p>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+
+            <ion-col size="12" class="fav-list" *ngIf="viewfavlist">
+                <ion-list>
+                    <ion-item *ngFor="let data of listing"> 
+                      <ion-avatar slot="start" routerLink="/checkavailability/{{data.user_id}}/public">
+                        <img [src]="data.user_avatar">
+                      </ion-avatar>
+                      <ion-label routerLink="/checkavailability/{{data.user_id}}/public">
+                        <h2>{{data.first_name}}</h2>
+                        <p>{{data.email}}</p>
+                      </ion-label>
+                    </ion-item>
+                  </ion-list>     
+            </ion-col>
+
+            <ion-col size="12" *ngIf="gallery.length >0">
+                <h5>Gallery</h5>
+                <div class="img_scroll">
+                    <ul>
+                        <li *ngFor="let g of gallery; let i=index;"><img (click)="open_gallery_modal(i, gallery)" src="{{g.thumb}}" />
+                        </li>
+                    </ul>
+                </div>
+            </ion-col>
+            <ion-col size="12" class="user-rating">
+                <h5>Rating</h5>
+            <div class="user-rating-inner">
+                <b>{{rating}}</b>
+                <ion-rating readonly [(ngModel)]="rating"
+                size="default" 
+                >
+                </ion-rating>  
+                <span>( {{user_info?.count}} Review )</span>                
+            </div> 
+            <a *ngIf="sameuser == false" routerLink="/userreview/{{user_id}}">Write a review</a>          
+            </ion-col>
+
+            <ion-col size="12" *ngIf="list.length >0" class="service_Sec">
+                <h5>Services</h5>
+                <div class="services_div services" *ngFor="let s of list">
+                    <ion-list class="services-list" *ngIf="s.checked">
+                        <ion-item >
+                            <ion-avatar  slot="start">
+                                <img src="{{s.cover}}"> 
+                            </ion-avatar>
+                            <ion-label >
+                                <h3>{{s.post_title}}</h3>
+                            </ion-label>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </ion-col>
+        </ion-row>
+
+        <div *ngIf="is_login">
+            <ion-row class="btn_sec" *ngIf="sameuser == true">
+                <ion-col size="6" routerLink="/services">
+                    <ion-button>Edit Services</ion-button>
+                </ion-col>
+                <ion-col size="6" routerLink="/barbercontactinfo">
+                    <ion-button>EDit Profile</ion-button>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+</ion-content>
+<ion-footer *ngIf="is_login">
+    <ion-row class="btn_sec" *ngIf="sameuser == false">
+        <ion-col size="6">
+            <ion-button routerLink="/tabs/booking">GOTO Booking</ion-button>
+        </ion-col>
+        <ion-col size="6" routerLink="/appointments/{{user_id}}">
+            <ion-button>Book Now</ion-button>
+        </ion-col>
+    </ion-row>
+</ion-footer>

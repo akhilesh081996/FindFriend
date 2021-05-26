@@ -1,0 +1,117 @@
+.header_sec {
+    // min-height: 55px;
+    ion-toolbar {
+        --background: transparent;
+        background-image: url(/assets/newimage/top-bg.png);
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    ion-title {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0;
+        color: #fff;
+        text-transform: uppercase;
+    }
+    .back_buttons {
+        margin-left: 12px;
+    }
+}
+
+.top_banner {
+    position: absolute;
+    top: 0px;
+    ion-icon[name="create"] {
+        font-size: 18px;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        color: #fff;
+        background-color: #34C86F;
+        padding-bottom: 3px;
+        padding-left: 3px;
+    }
+}
+.addcard{
+    font-size: 20px;
+    margin-bottom: 0;
+}
+ion-header {
+    span.notification {
+        position: absolute;
+        right: 14px;
+        top: 9px;
+        color: white;
+        img {
+            width: 23px;
+        }
+    }
+    ion-toolbar {
+        --background: #1F2E36;
+        color: #fff;
+        ion-back-button {
+            color: #fff!important;
+        }
+    }
+}
+
+ion-button.custom_btn {
+    width: 100%;
+    margin-top: 14px;
+}
+
+.user_details {
+    border-bottom: 1px solid #111;
+    padding-bottom: 9px;
+}
+
+.services {
+    padding: 0px 19px;
+    padding-top: 13px;
+    ion-row {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+        padding-left: 1px;
+    }
+    h4 {
+        font-size: 16px;
+        color: #696969;
+    }
+    ion-icon[name="arrow-forward"] {
+        font-size: 31px;
+        color: #f01c18;
+        font-weight: 600;
+        position: relative;
+        top: 28px;
+    }
+    img {
+        width: 45px;
+        height: 45px;
+        border-radius: 100%;
+        object-fit: cover;
+        object-position: top;
+        position: relative;
+        top: 15px;
+    }
+    p {
+        margin-top: 8px;
+    }
+}
+
+ion-button {
+    width: 96%;
+    margin: 0px auto;
+    margin-top: 14px;
+    --background: #41537b;
+    --background-focused: #41537b;
+    --background-hover: #41537b;
+    --background-activated: #41537b;
+    --border-radius: 6px;
+    min-height: 51px;
+    margin-bottom: 11px;
+}

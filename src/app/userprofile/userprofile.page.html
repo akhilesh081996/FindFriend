@@ -1,0 +1,87 @@
+<ion-header class="header_sec" no-padding>
+    <ion-toolbar class="ion-no-padding">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_img">
+
+    <div class="top-bg" >
+        <img *ngIf="user_background_image != 'http://1.gravatar.com/avatar/1aedb8d9dc4751e229a335e371db8058?s=96&d=mm&r=g'" [src]="user_background_image">
+        <img *ngIf="user_background_image == 'http://1.gravatar.com/avatar/1aedb8d9dc4751e229a335e371db8058?s=96&d=mm&r=g'" src="assets/newimage/top-bg.png">
+    
+     <!-- <img src="assets/imgs/homebg.png" alt=""> -->
+
+    </div>
+    <ion-list class="profile-activity">
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <img [src]="userImage">
+            </ion-thumbnail>
+            <ion-label>
+                <span>
+                    <button (click)="selectImage('userbackgroundimage')">
+                        <ion-img src="assets/newimage/Add.png">
+                        </ion-img>
+                    </button>
+                </span>
+                <h3>{{user_info?.shop_name}}</h3>
+                <!-- <label><ion-img src="assets/newimage/Check.png"></ion-img>You Are Friends</label> -->
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+    <ion-grid>
+        <!-- <div class="bg_shop" *ngIf="ready">
+            <img src="/assets/newimage/top-bg.png" class="img_sec">
+            <img src="{{user_info.user_avatar}}" class="inner_img">
+        </div> -->
+
+
+        <ion-row class="user-detail-tab">
+            <!-- <ion-col>
+                <label><ion-img src="assets/newimage/Gift.png"></ion-img>Email</label>
+                <span>{{user_info?.email}}</span>
+            </ion-col> -->
+            <ion-col>
+                <label><ion-img src="assets/newimage/Location.png"></ion-img>Lives</label>
+                <span>{{user_info?.shop_location}}</span>
+            </ion-col>
+            <ion-col>
+                <label><ion-img src="assets/imgs/call.png"></ion-img>Mob. No.</label>
+                <span>{{user_info?.shop_phone}}</span>
+            </ion-col>
+        </ion-row>
+        <ion-card class="welcom-text">
+            <ion-card-header>
+                {{user_info?.shop_about}}
+            </ion-card-header>
+            <ion-card-content>
+                {{user_info?.snipet}}
+            </ion-card-content>
+        </ion-card>
+        <ion-col size="12">
+            <ion-button expand="block" (click)="editprofile()" class="continue">Edit Profile</ion-button>
+        </ion-col>
+
+        <!-- <ion-list class="plan-activity">
+            <ion-list-header class="ion-text-center">
+                <h3>Plan an Activity</h3>
+            </ion-list-header>
+            <ion-item>
+                <ion-label>Get Coffee</ion-label>
+                <span>$5</span>
+            </ion-item>
+            <ion-item>
+                <ion-label>Go Out To Dinner</ion-label>
+                <span>$8</span>
+            </ion-item>
+            <ion-item>
+                <ion-label>Go See A Movie</ion-label>
+                <span>$9</span>
+            </ion-item>
+        </ion-list> -->
+    </ion-grid>
+</ion-content>

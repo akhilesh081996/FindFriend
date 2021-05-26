@@ -1,0 +1,389 @@
+.header_sec {
+    ion-toolbar {
+        --background: transparent !important;
+        --border-width: 0px;
+        ion-back-button {
+            margin-left: 12px;
+        }
+    }
+    ion-title {
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+}
+
+ion-content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.bg_shop {
+    // position: absolute;
+    // top: 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    .img_sec {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    .inner_img {
+        width: 175px;
+        height: 175px;
+        border-radius: 100%;
+        position: relative;
+        bottom: 95px;
+        border: 1px solid #204a9b;
+        padding: 6px;
+    }
+}
+
+.appoint_sec {
+    // max-width: 100%;
+    // width: 100%;
+    // margin: auto;
+    background: #fff;
+    ion-col[size="6"] {
+        margin: auto;
+        padding: 0;
+        ion-checkbox {
+            width: 100%;
+            max-width: 14px;
+            height: 14px;
+        }
+        span {
+            position: relative;
+            bottom: 3px;
+            left: 9px;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 500;
+            width: 100%;
+            display: inline-block;
+            max-width: 140px;
+        }
+        .checkbox-checked {
+            --background: var(--ion-color-success) !important;
+        }
+    }
+}
+
+.text_sec {
+    background: #fff;
+    position: relative;
+    z-index: 9999;
+    max-width: 90%;
+    width: 100%;
+    margin: -60px auto 0;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
+    h5 {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 15px;
+        max-width: 75%;
+        width: 100%;
+        margin: auto;
+        font-family: SF-UI-Display-Medium !important;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        line-height: 22px;
+    }
+}
+
+//calendar sec start
+[col-1] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 8.33333%;
+    -ms-flex: 0 0 8.33333%;
+    flex: 0 0 14.285714285714286%;
+    width: 14.285714285714286%;
+    max-width: 14.285714285714286%;
+    margin: auto;
+}
+
+.col {
+    text-align: center;
+    padding: 5px;
+}
+
+.last-month,
+.next-month {
+    color: #b1b1b1;
+    // font-size: 90%;
+}
+
+.currentDate,
+.otherDate {
+    padding: 5px;
+}
+
+.currentDate {
+    // font-weight: bold;
+    color: #fff;
+    border-radius: 100%;
+    width: 26px;
+    height: 26px;
+    display: block;
+    margin: auto;
+    position: relative;
+    background: #204a9b !important;
+}
+
+.calendar-date {
+    font-size: 11px;
+    color: #000;
+    font-weight: bold;
+    // font-family: SF-UI-Display-Regular;
+}
+
+.calendar-body {
+    color: #d2d0d0;
+    padding-bottom: 22px;
+}
+
+.calendar-month ion-icon {
+    background: #204a9b !important;
+    border-radius: 100%;
+    padding: 4px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.calendar-month ion-col[size="6"] {
+    margin: auto;
+    padding-top: 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000 !important;
+    text-transform: uppercase;
+    // font-family: SF-UI-Display-Bold;
+}
+
+.calendar-header {
+    background-color: transparent;
+    margin-top: 28px;
+    margin-bottom: 12px;
+}
+
+.calendar-weekday {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: SF-UI-Display-Regular;
+    // font-family: SFUIDisplay-Bold;
+}
+
+.event-bullet {
+    margin: 2px auto;
+    height: 5px;
+    width: 5px;
+    background-color: green;
+    border-radius: 30px;
+}
+
+.selected-date {
+    width: 20px;
+    height: 2px;
+    background-color: blue;
+}
+
+.unselected-date {
+    border: none;
+}
+
+.calendar-body {
+    .grid {
+        padding: 0;
+    }
+    .col:last-child {
+        border-right: none;
+    }
+    .calendar-weekday,
+    .calendar-date {
+        text-align: center;
+        margin: 0;
+    }
+}
+
+//end
+.calendar_sec {
+    .add_img {
+        position: absolute;
+        bottom: -22px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        ion-icon {
+            font-size: 40px;
+            color: #204a9b;
+        }
+    }
+}
+
+.book_list {
+    max-width: 95%;
+    width: 100%;
+    margin: auto;
+    z-index: 9999;
+    position: relative;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    .decline {
+        background: #f3cfce;
+        padding: 10px 7px;
+        border-radius: 6px;
+        color: #204a9b !important;
+        margin-top: 6px;
+        text-align: center;
+    }
+    h5 {
+        font-size: 16px;
+        text-transform: uppercase;
+        margin-top: 4px;
+        font-family: SF-UI-Display-Semibold;
+        margin-bottom: 1px;
+    }
+    p {
+        margin-top: 0;
+        margin-bottom: 6px;
+        font-size: 13px;
+    }
+    ion-datetime {
+        padding: 0;
+        display: inline-block;
+        pointer-events: none;
+        cursor: none;
+    }
+    ion-icon[name="time"] {
+        font-size: 17px;
+        margin-right: 4px;
+        color: #204a9b;
+    }
+    ion-icon[name="calendar"] {
+        font-size: 18px;
+        position: relative;
+        top: 4px;
+        margin-right: 4px;
+        color: #204a9b;
+    }
+    ion-col[size="12"] {
+        ion-item {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 9px;
+            img {
+                width: 100%;
+                max-width: 85px;
+                height: 85px;
+                border-radius: 6px;
+            }
+            ion-label {
+                margin-left: 12px;
+                margin-top: 0;
+                h5 {
+                    font-size: 16px !important;
+                    text-transform: uppercase;
+                    font-family: SF-UI-Display-Semibold;
+                }
+                p {
+                    font-size: 14px !important;
+                    color: #545454;
+                    ion-icon {
+                        font-size: 16px;
+                        position: relative;
+                        top: 3px;
+                        margin-right: 5px;
+                    }
+                }
+            }
+            .btn_sec {
+                position: absolute;
+                right: 0px;
+                top: 0;
+                .accept {
+                    background: #cdf2d1;
+                    padding: 10px 35px;
+                    border-radius: 6px;
+                    color: #0ec026 !important;
+                }
+                .decline {
+                    background: #f3cfce;
+                    padding: 10px 35px;
+                    border-radius: 6px;
+                    color: #cf2b30 !important;
+                    margin-top: 6px;
+                }
+            }
+        }
+    }
+}
+
+.today_sec {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #545454;
+    position: relative;
+    z-index: 9999;
+    text-align: center;
+    width: 100%;
+}
+
+p.accept {
+    background: #cdf2d1;
+    padding: 5px 11px;
+    border-radius: 18px;
+    color: #0ec026 !important;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 6px !important;
+}
+
+.selected-date {
+    background: #204a9b !important;
+    color: #fff;
+    border-radius: 100%;
+    width: 26px;
+    height: 26px;
+    display: block;
+    margin: auto;
+    position: relative;
+    line-height: 25px;
+}
+
+.unselected-date {
+    border: none;
+}
+
+// New List
+ion-label.booking_action {
+    display: inherit;
+}
+
+.booking_list ion-avatar {
+    width: 60px;
+    height: 60px;
+}
+
+.btn_sec {
+    margin-left: 16px;
+}
+
+p.decline {
+    background: #ffb566;
+    padding: 5px 11px;
+    border-radius: 18px;
+    color: #ffffff !important;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 6px !important;
+}

@@ -1,0 +1,81 @@
+<ion-header class="header_sec" no-padding>
+    <ion-toolbar class="ion-no-padding">
+        <ion-buttons slot="end" class="back_buttons">
+            <ion-menu-button>
+                <ion-icon name="more"></ion-icon>
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title>Messages</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="ion-no-padding">
+
+
+        <ion-row *ngIf="loading_spinner">
+            <ion-col size="12" class="ion-text-center ion_spinner_row">
+                <ion-spinner name="lines-small"></ion-spinner>
+            </ion-col>
+        </ion-row>
+
+
+
+
+
+
+        <!-- <ion-row (click)="sendToMessage(chatuser)" [hidden]="!chatlistData" *ngFor="let chatuser of chatlistData" class="message_list_sec" padding routerLink="/chat">
+            <ion-col size="4"> -->
+        <!-- <img src="assets/imgs/list2.png"> -->
+        <!-- <img [hidden]="chatuser.user_img" src="assets/list2.png" />
+                <img *ngIf="chatuser.user_img" [src]="chatuser.user_img" />
+
+                <div class="offline">
+                    <img src="assets/imgs/online.png">
+                </div>
+            </ion-col>
+            <ion-col size="8">
+                <h3>{{chatuser.display_name | titlecase}}</h3>
+                <p>{{chatuser.msg_data.message}}</p>
+            </ion-col>
+            <div class="date_sec">
+                <p class="date">{{chatuser.msg_data.time}}</p>
+            </div>
+        </ion-row> -->
+
+
+
+        <ion-list class="message_list">
+            <!-- <ion-list-header>Item thumbnails</ion-list-header> -->
+            <ion-item (click)="sendToMessage(chatuser)" [hidden]="!chatlistData" *ngFor="let chatuser of chatlistData" class="message_list_sec" padding >
+                <ion-thumbnail slot="start">
+                    <img [hidden]="chatuser.user_img" src="assets/list2.png" />
+                    <img *ngIf="chatuser.user_img" [src]="chatuser.user_img" />
+                    <!-- <div class="offline">
+                        <img src="assets/imgs/online.png">
+                    </div> -->
+                </ion-thumbnail>
+                <ion-label>
+                    <h3>{{chatuser.display_name | titlecase}}</h3>
+                    <p>{{chatuser.msg_data.message}}</p>
+                    <div class="date_sec">
+                        <p class="date">{{chatuser.msg_data.time}}</p>
+                    </div>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+
+
+
+
+
+
+
+
+        <ion-row *ngIf="tmp1.length==0 && !loading_spinner">
+            <ion-col size="12" class="no_data ion-text-center">
+                No Messages
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

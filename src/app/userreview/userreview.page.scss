@@ -1,0 +1,38 @@
+ion-toolbar {
+    --background: #004a9b;
+    color: #fff;
+    font-size: 38px;
+}
+
+ion-col.user-rating {
+    text-align: center;
+    padding: 16px;
+}
+
+ion-col.user-rating h5 {
+    margin: 0;
+}
+textarea {
+    width:100%;
+    border-radius: 8px;
+    border: 1px solid #004a9b;
+    height: auto;
+    min-height: 150px;
+    margin: 10px 0 20px 0;
+    padding: 10px;
+}
+
+ion-button.submit-review {
+    --background: #004a9b;
+    height: 44px;
+    --border-radius: 30px;
+    min-width: 160px;
+}
+
+ion-rating {
+    zoom: 0.7;
+}
+
+:focus {
+    outline: none;
+}

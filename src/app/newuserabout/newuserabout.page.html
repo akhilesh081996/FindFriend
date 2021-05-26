@@ -1,0 +1,22 @@
+<ion-content>
+    <ion-grid class="ion-no-padding">
+        <ion-row class="logo_sec bg_img">
+            <ion-col size="12">
+                <h6>Please give a brief overview about your Hobbies.</h6>
+                <ion-textarea placeholder="A little about me" [(ngModel)]="aboutuser"></ion-textarea>
+            </ion-col>
+        </ion-row>
+        <ion-row class="btn_sec">
+            <ion-col size="6">
+                <ion-button routerLink="/userupload">
+                    <ion-icon name="arrow-back"></ion-icon>Back</ion-button>
+            </ion-col>
+            <ion-col size="6">
+                <!--
+        <ion-button routerLink="/usercertification">Next</ion-button>
+        -->
+                <ion-button (click)="logintoapp()">Submit</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

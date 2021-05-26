@@ -1,0 +1,58 @@
+<ion-header class="header_sec" no-padding>
+    <ion-toolbar class="ion-no-padding">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>List</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="bg_shop">
+
+        <!-- <p>Find The Best Barbers</p>
+    <p>Near You</p> -->
+        <form (ngSubmit)="submitSearch($event)" action=".">
+            <ion-searchbar [(ngModel)]="searchQuery" name="searchQuery" [ngModelOptions]="{standalone: true}" (ionCancel)="clearSearch($event)" placeholder="Find a Friend Near Me">
+            </ion-searchbar>
+        </form>
+
+    </div>
+    <!-- <ion-row class="rating_sec">
+        <ion-col size="6">
+            <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#ef882b" defaultColor="#858585" readonly="false" rating="3" fontSize="15px" (ratingChanged)="logRatingChange($event)">
+            </ionic4-star-rating><span class="four">4 & up</span>
+        </ion-col>
+        <ion-col size="6">
+            <span class="search_sec"><ion-icon name="search"></ion-icon>Advanced Search</span>
+        </ion-col>
+    </ion-row> -->
+    <ion-grid>
+        <ion-row class="user_list">
+            <ion-col size="12">
+                <!-- <p>Crossfit Near You</p> -->
+                <ul *ngIf="barberReady">
+                    <li *ngFor="let u of barberlist">
+                        <ion-item lines="none" class="ion-no-padding">
+                            <img src="{{u.shop_logo}}" routerLink="/checkavailability/{{u.id}}/public">
+                            <ion-label routerLink="/checkavailability/{{u.id}}/public">
+                                <p>{{u.shop_name}}</p>
+                                <!-- <p>Arnold Potter</p> -->
+                                <p><ion-icon name="star-outline"></ion-icon><span>{{u.rate}}({{u.count}})</span></p>
+                                <!-- <p><ion-icon name="pin"></ion-icon><span>{{u.shop_location}}</span></p> -->
+                            </ion-label>
+                            <ion-label class="bookmark_sec">
+                                <img  (click)="addfav(u?.id,1)" *ngIf="u.fav != '1'" src="assets/imgs/heart-gray.svg" class="bookmark">
+                                <img (click)="addfav(u?.id,0)" *ngIf="u.fav == '1'" src="assets/imgs/heart-blue.svg" class="bookmark">
+                            </ion-label>
+                        </ion-item>
+                    </li>
+                </ul>
+            </ion-col>
+            <ion-col *ngIf="!barberReady" size="12" text-center>
+                <ion-spinner class="spinner"></ion-spinner>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

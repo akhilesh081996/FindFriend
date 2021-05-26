@@ -1,0 +1,157 @@
+<ion-header class="header_sec" no-padding>
+  <ion-toolbar class="ion-no-padding">
+    <ion-buttons slot="start" (click)="back()" class="back_buttons">
+      <ion-icon name="arrow-round-back"></ion-icon>
+    </ion-buttons>
+    <ion-title>Booking Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row *ngIf="!ready">
+    <ion-col size="12" text-center>
+      <ion-spinner class="spinner"></ion-spinner>
+    </ion-col>
+  </ion-row>
+
+  <ion-grid *ngFor="let bk of booking" class="ion-no-padding">
+
+    <!-- <ion-row class="message_list_sec" *ngIf="res.view_type=='customer'" padding routerLink="/barberprofile/{{bk.barber_id}}/public">
+      <ion-col size="4">
+        <img *ngIf="res.view_type=='customer'" src="{{bk.barber_img}}">
+        <img *ngIf="res.view_type=='barber'" src="{{bk.user_img}}">
+   
+      </ion-col>
+      <ion-col size="8">
+        <h3 *ngIf="res.view_type=='barber'">{{bk.user_name}}</h3>
+        <h3 *ngIf="res.view_type=='customer'">{{bk.shop_name}}</h3>
+        <p class="address">
+          <ion-icon name="pin"></ion-icon> {{bk.address1}} {{bk.address2}} {{bk.city}} {{bk.state}}, USA
+        </p>
+        <div class="date_sec">
+          <p class="date"><ion-icon name="calendar"></ion-icon> {{bk.date}} {{bk.time}}
+          </p>
+        </div>
+      </ion-col>
+    </ion-row> -->
+
+    <!-- <ion-row class="message_list_sec" *ngIf="res.view_type=='barber'" padding routerLink="/userprofile/{{bk.user_id}}/public">
+      <ion-col size="4">
+        <img *ngIf="res.view_type=='customer'" src="{{bk.barber_img}}">
+        <img *ngIf="res.view_type=='barber'" src="{{bk.user_img}}"> -->
+        <!-- <div class="offline">
+        <img src="assets/imgs/online.png">
+      </div> -->
+      <!-- </ion-col>
+      <ion-col size="8">
+        <h3>{{bk.user_name}}</h3>
+        <p class="address">
+          <ion-icon name="pin"></ion-icon> {{bk.address1}} {{bk.address2}} {{bk.city}} {{bk.state}}, USA
+        </p>
+        <div class="date_sec">
+          <p class="date"><ion-icon name="calendar"></ion-icon> {{bk.date}} {{bk.time}}
+          </p>
+        </div>
+      </ion-col>
+    </ion-row> -->
+
+    
+
+    <ion-row>
+      <ion-col size="12" class="ion-padding u-detail" >
+        <!-- <ion-item *ngIf="user?.user_id == bk.barber_id">
+          <ion-thumbnail slot="start">
+            <img  src="{{bk.user_img}}">
+          </ion-thumbnail>
+          <ion-label>
+            <h3 >{{bk.user_name}}</h3>
+            <p><ion-icon name="pin"></ion-icon> {{bk.address1}} {{bk.address2}} {{bk.city}} {{bk.state}}, USA</p>
+          </ion-label>
+        </ion-item> -->
+        <ion-item routerLink="/checkavailability/{{bk.barber_id}}/public">
+          <ion-thumbnail slot="start">
+            <img  src="{{bk.barber_img}}">
+          </ion-thumbnail>
+          <ion-label>
+            <h3 >{{bk.barber_name}}</h3>
+            <p><ion-icon name="pin"></ion-icon> {{bk.address1}} {{bk.address2}} {{bk.city}} {{bk.state}}, USA</p>
+            <!-- <p><ion-icon name="calendar"></ion-icon> {{bk.date}} {{bk.time}}</p> -->
+          </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="ion-padding u-address">        
+        <div class="address-box">
+          <h5>Meetup Details</h5>
+          <div class="u-location">
+            <ion-icon name="calendar"></ion-icon>
+            <ion-label>
+              {{bk.activity}}
+            </ion-label>
+          </div> 
+          <div class="u-location">
+            <ion-icon name="calendar"></ion-icon>
+            <ion-label>
+              {{bk.date}}
+            </ion-label>
+          </div>   
+          <div class="u-time">
+            <ion-icon ios="ios-time" md="md-time"></ion-icon>
+            <ion-label>
+               {{bk.time}}
+            </ion-label>
+          </div> 
+          <!-- <ion-button expand="block"  *ngIf="res.booked_by=='customer' && bk.status==1" (click)="meetup(bk)">Meet Up</ion-button>    -->
+          <!-- <ion-button expand="block"  *ngIf="res.booked_by=='customer' && bk.status==4">Close</ion-button>        -->
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- <h5 class="service">Service Requested</h5>
+    <ion-row class="ul_list book_list">
+      <ion-col size="12">
+        <ul>
+          <li *ngFor="let servies of bk.services">{{servies.service_name}}</li>
+        </ul>
+      </ion-col>
+    </ion-row> -->
+
+    <div class="btn_sec" *ngIf="bk.user_id != user?.user_id">
+      <p class="accept" *ngIf="bk.status != 0" (click)="sendToMessage(userProfile)">Message</p>
+      <p class="accept" *ngIf="bk.status == 0" (click)="ProcessBooking(1,bk.booking_id)">Accept</p>
+      <!-- <p class="accept" *ngIf="bk.status == 1" (click)="ProcessBooking(4,bk.booking_id)">Start</p> -->
+      <p class="decline" *ngIf="bk.status == 0 || bk.status == 1" (click)="ProcessBooking(3,bk.booking_id)">Decline</p>
+      <p class="decline" *ngIf="bk.status == 4" (click)="ProcessBooking(2,bk.booking_id)">End Meetup</p>
+      <p class="accept" *ngIf="bk.status == 4">Started</p>
+      <p class="accept" *ngIf="bk.status == 2">Completed</p >
+      <p class="accept" *ngIf="bk.status == 2" routerLink="/userreview/{{bk.user_id}}">Rate User</p >
+      <p class="accept" *ngIf="bk.status == 1">Accepted</p>
+      <p class="decline" *ngIf="bk.status == 3">Declined</p>
+
+    </div>
+    <div class="btn_sec" *ngIf="bk.user_id == user?.user_id">
+      <p class="accept" *ngIf="bk.status != 0" (click)="sendToMessage(userProfile)">Message</p>
+      <p class="decline" *ngIf="bk.status == 0 || bk.status == 1" (click)="ProcessBooking(3,bk.booking_id)">Decline</p>
+      <p class="accept" *ngIf="bk.status == 4">Started</p>
+      <p class="accept" *ngIf="bk.status == 2">Completed</p>
+      <p class="accept" *ngIf="bk.status == 1" (click)="ProcessBooking(4,bk.booking_id)">Start</p>
+      <p class="decline" *ngIf="bk.status == 4" (click)="ProcessBooking(2,bk.booking_id)">End Meetup</p>
+      <p class="accept" *ngIf="bk.status == 2" routerLink="/userreview/{{bk.barber_id}}">Rate User</p >
+      <p class="decline" *ngIf="bk.status == 0">Pending</p>
+      <p class="accept" *ngIf="bk.status == 1">Accepted</p>
+      <p class="decline" *ngIf="bk.status == 3">Declined</p>
+    </div>
+
+    <div class="btn_sec" *ngIf="bk.booked_by=='user'">
+      <div *ngIf="bk.booked_by=='barber' && bk.status==1" (click)="ProcessBooking(4,bk.booking_id)" class="acceptbtn"><ion-button>Start</ion-button></div>
+      <div><ion-button *ngIf="bk.booked_by=='barber' && bk.status==4" (click)="ProcessBooking(2,bk.booking_id)" class="acceptbtn">Complete</ion-button></div>
+      <div><ion-button *ngIf="bk.booked_by=='barber' && bk.status==1" (click)="ProcessBooking(3,bk.booking_id)" class="declinebtn">Decline</ion-button></div>
+    </div>
+
+    <!-- <ion-rating [(ngModel)]="rate"
+        readonly="false"
+        size="default"
+        (rateChange)="onRateChange($event)">
+</ion-rating> -->
+    
+  </ion-grid>
+</ion-content>

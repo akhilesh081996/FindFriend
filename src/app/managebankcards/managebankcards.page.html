@@ -1,0 +1,68 @@
+<ion-header class="header_sec" no-padding>
+    <ion-toolbar class="ion-no-padding">
+        <ion-buttons slot="start" class="back_buttons" (click)="back()">
+                <ion-icon name="arrow-round-back"></ion-icon>
+        </ion-buttons>
+        <ion-title>My Cards</ion-title>
+        <ion-buttons slot="end" class="addcard">
+            <span class="notification" *ngIf="cards?.length == 0" routerLink="/billing/forpayment/invoice" >Add</span>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-row *ngIf="!ready">
+        <ion-col class="ion-text-center">
+            <ion-spinner name="lines"></ion-spinner>
+        </ion-col>
+    </ion-row>
+    <ion-grid class="services" *ngIf="ready">
+        <!-- <ion-row *ngIf="error != ''">
+            <ion-col class="ion-text-center">
+                {{error}}
+            </ion-col>
+        </ion-row> -->
+        <ion-row (click)="GotoCardInfo(c,'forpayment')" *ngFor="let c of cards">
+
+            <ion-col size="10" class="ion-no-padding">
+                <h4> {{c.brand}}</h4>
+                <p> {{c.name}} ***** {{c.last4}}</p>
+                <!-- <ion-icon class="row_padding" text-right name="checkbox" *ngIf="c.id==customer.default_source"></ion-icon> -->
+                <!-- <ion-icon class="row_padding" text-right name="checkbox-outline" (click)="edit(c)"
+                      *ngIf="c.id!=customer.default_source"></ion-icon> -->
+            </ion-col>
+            <ion-col size="2" class="ion-no-padding ion-text-right">
+                <ion-icon name="arrow-forward"></ion-icon>
+
+            </ion-col>
+        </ion-row>
+
+        <!-- <ion-row (click)="GotoBankAccountInfo(b,'bank_account')" *ngFor="let b of bank_accounts">
+
+            <ion-col size="10" class="ion-no-padding">
+                <h4> {{b.bank_name}} <small *ngIf="b.default_for_currency">Default</small></h4>
+                <p> {{b.account_holder_name}} ***** {{b.last4}}</p>
+            </ion-col>
+            <ion-col size="2" class="ion-no-padding ion-text-right">
+                <ion-icon name="arrow-forward"></ion-icon>
+
+            </ion-col>
+        </ion-row> -->
+
+        <!-- <ion-row  *ngFor="let b of card_accounts">
+
+            <ion-col size="10" class="ion-no-padding">
+                <h4> {{b.brand}} <small *ngIf="b.default_for_currency">Default</small> </h4>
+                <p> {{b.name}} ***** {{b.last4}} </p>
+                <p>Payout Support: <span *ngIf="b.available_payout_methods[0]">{{b.available_payout_methods[0]}}, </span> <span *ngIf="b.available_payout_methods[1]">{{b.available_payout_methods[1]}}</span></p>
+            </ion-col>
+            <ion-col size="2" class="ion-no-padding ion-text-right">
+                <ion-icon name="arrow-forward"></ion-icon>
+
+            </ion-col>
+        </ion-row> -->
+
+    </ion-grid>
+
+</ion-content>

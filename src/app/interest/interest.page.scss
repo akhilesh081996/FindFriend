@@ -1,0 +1,98 @@
+.bg_img {
+    --background: transparent;
+    background-image: url(/assets/newimage/bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.logo_sec {
+    ion-col[size="12"] {
+        text-align: center;
+        display: inline-block;
+        h6 {
+            font-size: 16px;
+            color: var(--ion-color-primary-contrast);
+            text-transform: uppercase;
+            position: relative;
+            margin-bottom: 60px;
+        }
+        h6:after {
+            content: "";
+            width: 100%;
+            max-width: 18px;
+            position: absolute;
+            border-bottom: 2px solid var(--ion-color-light-orange);
+            left: 0;
+            right: 0;
+            margin: auto;
+            top: 0;
+            bottom: -10px;
+        }
+        ul {
+            padding: 0;
+            list-style-type: none;
+            color: var(--ion-color-primary-contrast);
+            text-align: left;
+            max-width: 100%;
+            width: 100%;
+            margin: auto;
+            // margin-top: 8px;
+            li {
+                background: var(--ion-color-primary-contrast);
+                display: inline-block;
+                padding: 14px 18px;
+                margin: 0px 4px;
+                border-radius: 30px;
+                margin-top: 8px;
+                color: var(--ion-color-black-contrast);
+            }
+            .active {
+                background: var(--ion-color-light-orange);
+                color: var(--ion-color-primary-contrast) !important;
+            }
+        }
+    }
+}
+
+.btn_sec {
+    margin-top: 50px;
+    ion-col[size="6"]:first-child {
+        text-align: right;
+        ion-button {
+            --background: var(--ion-button-color);
+            --border-radius: 30px !important;
+            border-radius: 30px !important;
+            max-width: 92%;
+            width: 100%;
+            --background-activated: transparent!important;
+            --background-focused: transparent !important;
+            --background-hover: transparent !important;
+            height: 50px;
+            color: #ffffff;
+            --box-shadow: 0px !important;
+            box-shadow: 0 1px 1px rgba(16, 27, 30, 0.15), 0 2px 2px rgba(16, 27, 30, 0.15), 0 4px 4px rgba(16, 27, 30, 0.15), 0 8px 8px rgba(16, 27, 30, 0.15), 0 16px 16px rgba(16, 27, 30, 0.15);
+            font-family: 'SF UI Display'!important;
+            letter-spacing: 2px;
+            font-size: 16px;
+        }
+    }
+    ion-col[size="6"]:nth-child(2) {
+        text-align: left;
+        ion-button {
+            --background: var(--ion-light-blue-color)!important;
+            --border-radius: 30px !important;
+            border-radius: 30px !important;
+            max-width: 92%;
+            width: 100%;
+            --background-activated: var(--ion-color-light-orange) !important;
+            --background-focused: var(--ion-color-light-orange) !important;
+            --background-hover: var(--ion-color-light-orange) !important;
+            height: 50px;
+            box-shadow: 0 1px 1px rgba(16, 27, 30, 0.15), 0 2px 2px rgba(16, 27, 30, 0.15), 0 4px 4px rgba(16, 27, 30, 0.15), 0 8px 8px rgba(16, 27, 30, 0.15), 0 16px 16px rgba(16, 27, 30, 0.15);
+            font-family: 'SF UI Display'!important;
+            letter-spacing: 2px;
+            font-size: 16px;
+        }
+    }
+}

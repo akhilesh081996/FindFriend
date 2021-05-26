@@ -1,0 +1,8 @@
+<ion-content class="ion-padding">
+  <ion-icon name="close" (click)="closeModal()"></ion-icon>
+  <div class="top" *ngIf="gallery[index]"> 
+        <div class="slide-content"> 
+          <img src="{{gallery[index].large}}" />
+        </div>
+  </div>
+</ion-content>

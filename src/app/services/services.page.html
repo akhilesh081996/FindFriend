@@ -1,0 +1,94 @@
+<ion-header class="header_sec" no-padding>
+    <ion-toolbar class="ion-no-padding">
+        <ion-buttons slot="start" class="back_buttons">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>My Services</ion-title>
+    </ion-toolbar>
+
+
+</ion-header>
+
+
+<ion-content>
+
+   
+
+    <form [formGroup]="addCheckListForm" (ngSubmit)="addServices()">
+        <div class="bg_shop">
+            <img src="/assets/newimage/top-bg.png" class="img_sec">
+        </div>
+        <ion-grid class="ion-no-padding text_sec">
+            <ion-row>
+                <ion-col size="12" class="ion-no-padding ion-text-center">
+                    <h5> what services do you provide ?</h5>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="!ready">
+                <ion-col size="12" text-center>
+                    <ion-spinner class="spinner"></ion-spinner>
+                </ion-col>
+            </ion-row>
+            <ion-row class="btn_sec">
+                <ion-col size="12">
+                    <ion-button routerLink="/myservicesadd">Create Services</ion-button>
+                </ion-col>
+            </ion-row>
+            <div *ngIf="ready">
+                <ion-row class="appoint_sec" *ngFor="let l of list">
+                    <ion-col size="12">
+                        <ion-checkbox color="success" id="check_{{l.post_id}}" formControlName="service_{{l.post_id}}"></ion-checkbox>
+                        <span>{{l.post_title}}</span>
+                    </ion-col>
+                    <ion-col size="12">
+                        <!-- <ion-row class="counter_sec">
+                            <ion-col size="6">
+                                <p>$
+                                    <ion-input type="tel" id="price_{{l.post_id}}" formControlName="price_{{l.post_id}}" placeholder="0"></ion-input>
+                                </p>
+                            </ion-col>
+                            <ion-col size="6">
+                                <p class="sel">
+                                    <ion-select placeholder="Min" id="time_{{l.post_id}}" formControlName="time_{{l.post_id}}">
+                                        <ion-select-option value="5">5 Min</ion-select-option>
+                                        <ion-select-option value="10">10 Min</ion-select-option>
+                                        <ion-select-option value="15">15 Min</ion-select-option>
+                                        <ion-select-option value="20">20 Min</ion-select-option>
+                                        <ion-select-option value="25">25 Min </ion-select-option>
+                                        <ion-select-option value="30">30 Min </ion-select-option>
+                                        <ion-select-option value="35">35 Min </ion-select-option>
+                                        <ion-select-option value="40">40 Min </ion-select-option>
+                                        <ion-select-option value="45">45 Min </ion-select-option>
+                                        <ion-select-option value="50">50 Min </ion-select-option>
+                                        <ion-select-option value="55">55 Min </ion-select-option>
+                                        <ion-select-option value="60">60 Min </ion-select-option>
+                                        <ion-select-option value="65">65 Min </ion-select-option>
+                                        <ion-select-option value="70">70 Min </ion-select-option>
+                                        <ion-select-option value="75">75 Min </ion-select-option>
+                                        <ion-select-option value="80">80 Min </ion-select-option>
+                                        <ion-select-option value="85">85 Min </ion-select-option>
+                                        <ion-select-option value="90">90 Min </ion-select-option>
+                                        <ion-select-option value="95">95 Min </ion-select-option>
+                                        <ion-select-option value="100">100 Min </ion-select-option>
+                                        <ion-select-option value="105">105 Min </ion-select-option>
+                                        <ion-select-option value="110">110 Min </ion-select-option>
+                                        <ion-select-option value="115">115 Min </ion-select-option>
+                                        <ion-select-option value="120">120 Min </ion-select-option>
+                                    </ion-select>
+                            </ion-col>
+                        </ion-row> -->
+                    </ion-col>
+                </ion-row>
+            </div>
+            <ion-row class="btn_sec">
+                <ion-col size="12">
+                    <ion-button (click)="addServices()">Save</ion-button>
+                    <!-- <ion-button type="submit">Save</ion-button> -->
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <div class="bg_shop_bottom">
+            <img src="/assets/newimage/bottom-bg.png" class="img_sec">
+        </div>
+    </form>
+</ion-content>

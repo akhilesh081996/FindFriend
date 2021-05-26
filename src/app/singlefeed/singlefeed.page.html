@@ -1,0 +1,47 @@
+<ion-header class="header_sec">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/news"></ion-back-button>
+    </ion-buttons>
+    <ion-title>News Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row *ngIf="!readyposts">
+    <ion-col class="ion-text-center">
+      <ion-spinner name="lines"></ion-spinner>
+    </ion-col>
+  </ion-row>
+  <div *ngIf="post" class="singlepost">
+    <h5 [innerHTML]="post.title.rendered"></h5>
+    <img *ngIf="post.jetpack_featured_media_url" src="{{post.jetpack_featured_media_url}}" [src]="post.jetpack_featured_media_url" [style.width]="'100%'" />
+   
+    <div class="comment_text_sec" [innerHTML]="post.content.rendered" padding></div>
+    <ion-row>
+     
+  
+    </ion-row>
+
+    <div *ngIf="post.has_comments">
+      <div *ngFor="let comment of post.comments" class="comment_box">
+        <p>{{comment.comment_content}}</p>
+
+        <div class="reply">
+          <small class="author">
+            <ion-icon name="contact"></ion-icon> {{comment.comment_author}}
+          </small>
+          <br />
+          <small class="date">{{comment.comment_date}}</small>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <ion-row>
+
+  </ion-row>
+
+</ion-content>

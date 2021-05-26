@@ -1,0 +1,122 @@
+<ion-header>
+  
+</ion-header>
+
+<ion-content>
+  <!-- <ion-toolbar>
+   
+  </ion-toolbar> -->
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col size="12" class="set-schedule">
+      <ion-button class="back-btn" (click)="back()"><ion-icon src="assets/imgs/left-arrow.svg"></ion-icon></ion-button>     
+      <div class="activity-note">
+      <ion-thumbnail>
+        <ion-img *ngIf="user_info?.userImage" [src]="user_info?.userImage"></ion-img>        
+      </ion-thumbnail>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Add a message or notes about your acitivity.</ion-card-subtitle>        
+        </ion-card-header>      
+        <ion-card-content>
+          <ion-label>
+            <!-- <p>Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.</p> -->
+            <section>
+              <ion-thumbnail>
+                <ion-img *ngIf="myinfo?.userImage" [src]="myinfo?.userImage" ></ion-img>
+              </ion-thumbnail>
+              
+              <ion-input placeholder="Start Typing" [(ngModel)]="messageAtBooking"></ion-input>
+            </section>
+          </ion-label>        
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+
+    <div class="schedule-setting">
+      <div class="schedule-act">
+        <!-- <ion-button class="active">hang out noe</ion-button> -->
+        <!-- <ion-button>schedule for later</ion-button> -->
+      </div>
+      <ion-row class="calendar_sec appoint_sec">
+        <ion-col size="12" no-padding>
+            <div class="calendar-header">
+                <ion-row>
+                    <!-- <ion-col size="2" (click)="goToLastMonth()" text-right>
+                        <ion-icon name="arrow-back"></ion-icon>
+                    </ion-col>
+                    <ion-col size="8" text-center>{{currentMonth}} {{currentYear}}</ion-col>
+                    <ion-col size="2" (click)="goToNextMonth()" text-left>
+                        <ion-icon name="arrow-forward"></ion-icon>
+                    </ion-col> -->
+                    <ion-col size="12" class="calendar-month">
+                      <ion-icon name="arrow-back" (click)="goToLastMonth()"></ion-icon>
+                      <h2>{{currentMonth}} {{currentYear}}</h2>
+                      <ion-icon name="arrow-forward" (click)="goToNextMonth()"></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </div>
+            <div class="calendar-body">
+                <ion-grid>
+                    <ion-row class="calendar-weekday">
+                        <ion-col>Sun</ion-col>
+                        <ion-col>Mon</ion-col>
+                        <ion-col>Tue</ion-col>
+                        <ion-col>Wed</ion-col>
+                        <ion-col>Thu</ion-col>
+                        <ion-col>Fri</ion-col>
+                        <ion-col>Sat</ion-col>
+                    </ion-row>
+                    <ion-row class="calendar-date">
+                        <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
+                        <ion-col col-1 *ngFor="let day of daysInThisMonth" (click)="selectDate(day)">
+                            <!-- <span class="currentDate" *ngIf="currentDate === day; else otherDate">{{day}}</span> -->
+                            <span *ngIf="currentDate === day; else otherDate" class="selected-date1">{{day}}</span>
+                            <ng-template #otherDate class="otherDate">
+
+                                <div *ngIf="isday!=day">
+                                    <span >{{day}}</span>
+                                </div>
+                                <div *ngIf="isday==day">
+                                    <span class="selected-date" *ngIf="isday==day">{{day}}</span>
+                                </div>
+                            </ng-template>
+                        </ion-col>
+                        <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </ion-col>
+
+        <!-- <div class="add_img">
+    <ion-icon name="add-circle"></ion-icon>
+  </div> -->
+    </ion-row>
+      <!-- <div class="schedule-date">
+        <h2>{{currentMonth}} {{currentYear}}</h2>
+        <ul>
+          <li *ngFor="let day of daysInThisMonth" id={{day}}><b (click)="selectDate(day)" >{{day}}</b></li>
+        </ul>
+      </div> -->
+
+      <div class="schedule-time">
+        <h2>Available times</h2>
+        <ion-list>
+          <ion-radio-group >           
+            <ion-item *ngFor="let time_data of avilable_time_slot">
+              <ion-label><span>{{time_data}}</span></ion-label>
+              <ion-radio slot="start" value="{{time_data}}" (click)="selecttimeslot(time_data)"></ion-radio>
+            </ion-item>
+            </ion-radio-group>
+            </ion-list>
+      </div>
+      <div class="action">
+        <ion-button class="send-request" (click)="submit()"><span><ion-icon src="assets/imgs/sending.svg" slot="start"></ion-icon></span>Confirm & send request</ion-button>
+      </div>
+      
+    </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

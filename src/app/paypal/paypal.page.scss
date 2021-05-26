@@ -1,0 +1,18 @@
+.header_sec {
+    ion-toolbar {
+        --background: #124a9b;
+        --border-width: 0px;
+        z-index: 6;
+        ion-back-button {
+            margin-left: 12px;
+        }
+    }
+    ion-title {
+        color: var(--ion-color-primary-contrast);
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+    .back_buttons {
+        margin-left: 8px;
+    }
+}

@@ -1,0 +1,68 @@
+<ion-header class="header_sec" no-padding>
+  <ion-toolbar class="ion-no-padding">
+    <ion-buttons slot="start" class="back_buttons" (click)="back()">
+      <ion-icon name="arrow-round-back"></ion-icon>
+  </ion-buttons>
+    <ion-title>Add New</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="serviceaddform" (ngSubmit)="UpdateService(serviceaddform.value)">
+    <ion-row class="shop_sec">
+      <ion-col size="12">
+        <ion-label position="stacked">Service Name <span class="red_color">*</span></ion-label>
+        <ion-input placeholder="" formControlName="service_name"></ion-input>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-label position="stacked">Service amount <span class="red_color">*</span></ion-label>
+        <ion-input placeholder="" type="tel" formControlName="service_price"></ion-input>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-label position="stacked">Service Time <span class="red_color">*</span></ion-label>
+        <ion-select placeholder="Min"  formControlName="service_time">
+          <ion-select-option value="5">5 Min</ion-select-option>
+          <ion-select-option value="10">10 Min</ion-select-option>
+          <ion-select-option value="15">15 Min</ion-select-option>
+          <ion-select-option value="20">20 Min</ion-select-option>
+          <ion-select-option value="25">25 Min </ion-select-option>
+          <ion-select-option value="30">30 Min </ion-select-option>
+          <ion-select-option value="35">35 Min </ion-select-option>
+          <ion-select-option value="40">40 Min </ion-select-option>
+          <ion-select-option value="45">45 Min </ion-select-option>
+          <ion-select-option value="50">50 Min </ion-select-option>
+          <ion-select-option value="55">55 Min </ion-select-option>
+          <ion-select-option value="60">60 Min </ion-select-option>
+          <ion-select-option value="65">65 Min </ion-select-option>
+          <ion-select-option value="70">70 Min </ion-select-option>
+          <ion-select-option value="75">75 Min </ion-select-option>
+          <ion-select-option value="80">80 Min </ion-select-option>
+          <ion-select-option value="85">85 Min </ion-select-option>
+          <ion-select-option value="90">90 Min </ion-select-option>
+          <ion-select-option value="95">95 Min </ion-select-option>
+          <ion-select-option value="100">100 Min </ion-select-option>
+          <ion-select-option value="105">105 Min </ion-select-option>
+          <ion-select-option value="110">110 Min </ion-select-option>
+          <ion-select-option value="115">115 Min </ion-select-option>
+          <ion-select-option value="120">120 Min </ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col class="ion-text-center">
+        
+          <img  [src]="getImgContent()" class="inner_img imageClass" (click)="selectImage('service_image')">
+      </ion-col>
+        
+      <ion-col size="12">
+        <ion-button expand="block"type="submit" *ngIf="post_id==0" [disabled]="!serviceaddform.valid" class="continue f_btn">Add New</ion-button>
+        <ion-button expand="block"type="submit" *ngIf="post_id>0" [disabled]="!serviceaddform.valid" class="continue f_btn">Update</ion-button>
+        <!-- <ion-button expand="block" type="button" class="continue f_btn" (click)="closeModal('simple')">Close</ion-button> -->
+    </ion-col>
+      
+
+    </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

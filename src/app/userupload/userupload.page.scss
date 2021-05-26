@@ -1,0 +1,165 @@
+.bg_img {
+    // --background: transparent;
+    background-image: url(/assets/imgs/bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+ion-content{
+    --background: transparent !important;
+}
+
+.logo_sec {
+    ion-col[size="12"] {
+        text-align: center;
+        display: inline-block;
+        h6 {
+            font-size: 16px;
+            color: #fff;
+            text-transform: uppercase;
+            position: relative;
+            margin-bottom: 60px;
+        }
+        h6:after {
+            content: "";
+            width: 100%;
+            max-width: 18px;
+            position: absolute;
+            border-bottom: 2px solid #ef882b;
+            left: 0;
+            right: 0;
+            margin: auto;
+            top: 0;
+            bottom: -10px;
+        }
+        ul {
+            padding: 0;
+            list-style-type: none;
+            color: #fff;
+            text-align: left;
+            max-width: 100%;
+            width: 100%;
+            margin: auto;
+            // margin-top: 8px;
+            li {
+                background: #fff;
+                display: inline-block;
+                padding: 14px 18px;
+                margin: 0px 4px;
+                border-radius: 12px;
+                margin-top: 8px;
+                color: #000;
+            }
+            .active{
+                background: #ef882b;
+                color: #fff !important;
+            }
+        }
+    }
+    .img_user {
+        max-width: 180px;
+        width: 100%;
+        border-radius: 45px !important;
+        object-fit: cover;
+        object-position: top;
+    }
+    p {
+        color: #fff;
+        max-width: 292px;
+        text-align: center;
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 25px;
+        line-height: 22px;
+        font-size: 14px;
+    }
+}
+.gallery_list{
+    text-align: center;
+    display: inline-block;
+    color: #000;
+    width: 100%;
+    max-width: 100%;
+    h6 {
+        font-size: 16px;
+        color: #000;
+        text-transform: uppercase;
+        position: relative;
+        margin-bottom: 0px;
+        font-family: Montserrat-Bold !important;
+    }
+    h6:after {
+        content: "";
+        width: 100%;
+        max-width: 18px;
+        position: absolute;
+        border-bottom: 2px solid #ef882b;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 0;
+        bottom: -10px;
+    }
+    ul {
+        padding: 0;
+        list-style-type: none;
+        color: #fff;
+        text-align: left;
+        max-width: 90%;
+        width: 100%;
+        margin: auto;
+        margin-top: 35px;
+        li {
+            background: #fff;
+            display: inline-block;
+            margin: 0px 4px;
+            border-radius: 12px;
+            // margin-top: 30px;
+            img {
+                max-width: 105px;
+                max-height: 105px;
+                height: 100%;
+                object-fit: cover;
+                object-position: top;
+            }
+        }
+        // .active{
+        //     background: #ef882b;
+        //     color: #fff !important;
+        // }
+    }
+}
+.btn_sec{
+    margin-top: 50px;
+    ion-col[size="6"]:first-child {
+        text-align: right;
+        ion-button {
+            --background: transparent;
+            --border-radius: 0px !important;
+            border-radius: 0px !important;
+            max-width: 92%;
+            width: 100%;
+            --background-activated: transparent!important;
+            --background-focused: transparent !important;
+            --background-hover: transparent !important;
+            height: 50px;
+            color: gray;
+            --box-shadow: 0px !important;
+      }
+   }
+    ion-col[size="6"]:nth-child(2){
+        text-align: left;
+        ion-button {
+            --background: #ef882b !important;
+            --border-radius: 0px !important;
+            border-radius: 0px !important;
+            max-width: 92%;
+            width: 100%;
+            --background-activated: #ef882b !important;
+            --background-focused: #ef882b !important;
+            --background-hover: #ef882b !important;
+            height: 50px;
+            --box-shadow: 0px !important;
+        }
+    }
+}

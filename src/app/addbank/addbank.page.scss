@@ -1,0 +1,98 @@
+.header_sec {
+    // min-height: 55px;
+    ion-toolbar {
+        --background: transparent;
+        background-image: url(/assets/newimage/top-bg.png);
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        ion-buttons ion-icon {
+            font-size: 24px;
+        }
+    }
+    ion-title {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0;
+        color: #fff;
+        text-transform: uppercase;
+    }
+    .back_buttons {
+        margin-left: 12px;
+    }
+}
+
+.decoration {
+    background: #fff;
+    padding: 30px 15px;
+    border-radius: 30px 30px 0 0;
+    margin-top: 0px;
+    position: relative;
+}
+
+ion-input {
+    background: #f9fafb;
+    margin-top: 5px;
+    border-radius: 6px;
+    height: 44px;
+    margin-bottom: 10px;
+    color: #333;
+    font-family: "SF UI Display" !important;
+    letter-spacing: 0;
+    --placeholder-opacity: 0.5;
+    border: 1px solid #e1e6ea;
+    --padding-start: 15px;
+}
+
+ion-select {
+    background: #eef6f9 !important;
+    height: 50px;
+    border-radius: 16px;
+    margin-bottom: 10px;
+    color: #6d6e70 !important;
+    --placeholder-opacity: 0.5;
+    --padding-end: 15px;
+    --padding-start: 15px;
+}
+
+span.half-input {
+    width: calc(50% - 5px);
+}
+
+.input-devider {
+    display: flex;
+    justify-content: space-between;
+}
+
+h3 {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+
+.upload-photo {
+    display: flex;
+    justify-content: space-between;
+    span {
+        width: calc(50% - 5px);
+    }
+}
+
+
+.green-btn {
+    width: 100%;
+    margin: 15px 0 15px 0;
+}
+
+p {
+    font-size: 14px;
+    color: #666;
+    margin: 15px 0 0;
+    display: block;
+}

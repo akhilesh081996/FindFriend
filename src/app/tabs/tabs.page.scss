@@ -1,0 +1,40 @@
+
+ion-tab-bar {
+    // --background: #000;
+    padding: 0px 0px;
+}
+
+
+.tab-selected {
+    .desktop {
+        display: block;
+        width: 100%;
+        // max-width: 25px;
+        // height: 25px;
+        object-fit: contain;
+    }
+    .mobile {
+        display: none;
+        width: 100%;
+        // max-width: 25px;
+        // height: 25px;
+        object-fit: contain;
+    }
+    ion-label {
+        color: #c7fedb;
+    }
+}
+.desktop {
+    display: none;
+    width: 100%;
+    max-width: 21px;
+    // height: 25px;
+    object-fit: contain;
+}
+.mobile {
+    display: block;
+    width: 100%;
+    max-width: 21px;
+    // height: 25px;
+    object-fit: contain;
+}

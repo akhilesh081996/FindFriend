@@ -1,0 +1,38 @@
+ion-avatar {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #004a9b7d;
+    border-radius: 10px;
+    --border-radius: 8px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+}
+
+ion-label {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-inline-end: 0;
+}
+
+ion-list {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+ion-toolbar {
+    --min-height: 44px;
+    --background: #004a9b;
+    color: #fff;
+}
+
+ion-buttons {
+    width: 48px;
+    font-size: 24px;
+    justify-content: center;
+    height: 48px;
+}

@@ -1,0 +1,198 @@
+ion-header {
+    position: absolute;
+    z-index: 0;
+}
+
+
+.rate-experience {
+    background: #031a3d;
+    padding: 60px;
+    ion-img {
+        border: 4px solid #fff;
+        width: 80px;
+        height: 80px;
+        border-radius: 40px;
+        margin: 0 auto;
+    }
+    h2 {
+        font-size: 16px;
+        text-transform: capitalize;
+        color: #fff;
+        text-align: center;
+        padding: 0 15px;
+    }
+    
+    p {
+        max-width: 260px;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+        margin: 0 auto;
+        line-height: 17px;
+    }
+}
+
+
+.total-price {
+    background: #031a3d82;
+    width: 100%;
+    float: left;
+    padding: 15px;
+}
+
+ion-card {
+    margin-top: -54px!important;
+    ion-card-header {
+        background: #004a9b;
+        padding: 10px;
+        text-align: center;
+        ion-card-subtitle {
+            color: #fff;
+        }
+    } 
+    ion-card-content {
+        background: #fff;
+        padding: 10px;
+         h2 {
+            text-align: center;
+            b {
+                display: block;
+                font-size: 14px;
+                margin-bottom: 5px;
+                color: #000;
+            }
+        }
+            div {
+                display: flex;
+                justify-content: space-between;
+                font-size: 12px;
+                padding: 10px;
+                border-top: 1px solid #e8e8e8;
+            }
+            section span {
+                font-size: 14px;
+                text-align: center;
+                display: block;
+                color: #00bd19;
+                margin: 15px 0;
+                font-weight: 700;
+            }
+        
+    }   
+}
+
+
+
+ion-list.rating {
+    width: 100%;
+    float: left;
+    padding: 15px;
+    margin-bottom: 0;
+    ion-thumbnail {
+        border-radius: 60px;
+        overflow: hidden;
+    }
+    ion-item {
+        --padding-start: 0px;
+        --inner-padding-end: 0px;
+        --inner-border-width: 0;
+        border-bottom: 1px solid #e8e8e8;
+    }
+    ion-label {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-end;
+        h6 {
+            font-size: 13px;
+        }
+        section b {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            font-weight: normal;
+            ion-icon {
+                margin-right: 4px;
+            }
+        }
+        div {
+            width: 50px;
+            display: flex;
+            flex-direction: column;
+            span {
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+.add-review {
+    font-size: 12px;
+    text-transform: capitalize;
+    padding: 0 15px 15px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+}
+
+.add-review ion-icon {
+    font-size: 24px;
+    color: #FFC107;
+}
+
+
+ion-button.write-review {
+    width: calc(100% - 30px);
+    margin: 0 auto 20px;
+    display: block;
+    --background: #e2e3e5;
+    color: #232323;
+    text-transform: capitalize;
+    font-size: 14px;
+    height: 48px;
+}
+
+ion-footer ion-button {
+    --background: #25bc18;
+    text-transform: uppercase;
+    font-size: 14px;
+    width: 100%;
+    margin: 0;
+    --border-radius: 0;
+    height: 80px;
+}
+
+
+@media only screen and (max-width: 360px) { 
+    .rate-experience ion-img {
+        width: 70px;
+        height: 70px;
+    }
+    .rate-experience h2 {
+        font-size: 15px;
+    }
+    .rate-experience p {
+        font-size: 10px;
+    }
+    ion-card ion-card-content div {
+        padding: 10px 10px 0 10px;
+    }
+    ion-card ion-card-content section span {
+        font-size: 13px;
+        margin: 10px 0;
+    }
+    ion-card ion-card-content h2 {
+        font-size: 14px;
+    }
+    ion-card ion-card-content h2 b {
+        font-size: 13px;
+    }
+    ion-list.rating {
+        padding: 7px 15px 15px 15px;
+    }
+    ion-footer ion-button {
+        height: 70px;
+    }
+
+}

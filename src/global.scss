@@ -1,0 +1,386 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+
+/* Core CSS required for Ionic components to work properly */
+
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url(assets/fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: Montserrat-Medium;
+    src: url(assets/fonts/Montserrat-Medium.ttf);
+}
+
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url(assets/fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+    font-family: Montserrat-Semibold;
+    src: url(assets/fonts/Montserrat-Semibold.ttf);
+}
+
+@font-face {
+    font-family: 'Fugaz One';
+    src: url('assets/fonts/FugazOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF UI Display';
+    src: url('assets/fonts/SFUIDisplay-Light.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF UI Display';
+    src: url('assets/fonts/SFUIDisplay-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF UI Display';
+    src: url('assets/fonts/SFUIDisplay-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF UI Display';
+    src: url('assets/fonts/SFUIDisplay-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF UI Display';
+    src: url('assets/fonts/SFUIDisplay-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF UI Display';
+    src: url('assets/fonts/SFUIDisplay-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF UI Display';
+    src: url('assets/fonts/SFUIDisplay-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF UI Display';
+    src: url('assets/fonts/SFUIDisplay-Ultralight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+// @font-face {
+//     font-family: Montserrat-Heavy;
+//     src: url(assets/fonts/Montserrat-Heavy.ttf);
+// }
+.header_sec {
+    .button-text {
+        display: none !important;
+    }
+    ion-back-button {
+        color: var(--ion-color-primary-contrast) !important;
+    }
+}
+
+.erricon {
+    font-size: 20px !important;
+    color: var(--ion-color-validation) !important;
+    margin: 0px 5px 0px 0px !important;
+    position: relative;
+    top: 5px;
+}
+
+.errp {
+    color: var(--ion-color-validation) !important;
+    background: #fff !important;
+    padding: 2px 15px !important;
+    border-radius: 50px !important;
+    font-size: 14px !important;
+    font-style: italic !important;
+    line-height: 1.8 !important;
+    margin-top: 8px !important;
+    margin-bottom: 12px !important;
+    letter-spacing: normal !important;
+    text-align: left;
+    text-transform: capitalize !important;
+    font-weight: normal !important;
+    font-family: "SF UI Display" !important;
+    max-width: 95%;
+    width: 100%;
+    margin: auto;
+}
+
+.services span:nth-child(even) {
+    margin-right: 0px !important;
+}
+
+.header_sec {
+    ion-title {
+        font-family: Montserrat-Regular !important;
+    }
+}
+
+.bg_shop {
+    .swiper-pagination {
+        .swiper-pagination-bullet {
+            width: 20px;
+            border-radius: 10px;
+            height: 6px;
+            background: var(--ion-color-primary-contrast);
+            position: relative;
+            bottom: 60px;
+        }
+    }
+}
+
+.back_sec {
+    ion-back-button {
+        .button-text {
+            display: none !important;
+        }
+    }
+    button .button-inner {
+        display: none;
+    }
+    ion-icon[name="arrow-round-back"] {
+        font-size: 40px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 9999;
+    }
+}
+
+.back_buttons {
+    button .button-inner {
+        display: none;
+    }
+    ion-icon[name="arrow-round-back"] {
+        font-size: 45px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 9999;
+        color: white;
+    }
+}
+
+.box_sec {
+    ion-textarea {
+        textarea {
+            height: 145px !important;
+        }
+    }
+}
+
+.shop_sec {
+    input {
+        padding-left: 10px !important;
+        font-size: 14px !important;
+    }
+}
+
+ion-input {
+    input {
+        opacity: 1!important;
+        // color: #065a0e!important;
+        padding-right: 0px!important;
+        padding-top: 0!important;
+        padding-bottom: 0!important;
+    }
+}
+
+ion-modal.gallery_modal {
+    --height: 51%;
+    --width: 90%;
+}
+
+.swiper-pagination-bullet-active {
+    background: #ef882b!important;
+}
+
+.swiper-pagination-bullet {
+    border: 1px solid #ef882b!important;
+}
+
+app-searchfilter {
+    ion-searchbar {
+        button[aria-label="cancel"] {
+            background-color: #ef882b!important;
+            color: var(--ion-color-primary-contrast)!important;
+            padding-right: 7px!important;
+            border-radius: 4px;
+            position: relative;
+            left: 3px;
+        }
+    }
+}
+
+ion-title {
+    padding: 0px 40px;
+    text-transform: capitalize !important;
+}
+
+// ion-toolbar {
+//     --background: rgba(17, 17, 17, 0.24) !important;
+// }
+ion-button {
+    font-family: Montserrat-Semibold !important;
+    height: 48px;
+}
+
+ion-input,
+ion-select,
+ion-datetime {
+    font-family: Montserrat-Medium !important;
+    font-size: 14px !important;
+    --color: #fff!important;
+}
+
+p,
+span,
+ion-label {
+    font-family: Montserrat-Regular !important;
+    // font-size: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Montserrat-Semibold !important;
+}
+
+.header-md:after {
+    background-image: transparent !important;
+}
+
+.bg_shop {
+    ion-searchbar {
+        .sc-ion-searchbar-ios {
+            height: 44px !important;
+            border-radius: 30px;
+        }
+        ion-icon.searchbar-search-icon {
+            color: #e97800 !important;
+            padding-left: 5px;
+        }
+    }
+}
+
+//android css//
+.header-md {
+    .md .searchbar-input {
+        border-radius: 30px !important;
+        // height: 54px !important;
+    }
+    .title-md {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -9999;
+        font-size: 16px;
+        text-align: center;
+        margin: auto;
+    }
+}
+
+ion-menu-button {
+    color: var(--ion-color-primary-contrast) !important;
+}
+
+//end
+.header-md:after {
+    background: transparent !important;
+}
+
+.logo_sec {
+    ion-textarea {
+        --background: var(--ion-color-primary-contrast) !important;
+        height: 200px;
+        border-radius: 16px;
+        --border-radius: 16px !important;
+        textarea {
+            height: 200px !important;
+        }
+    }
+}
+
+.ionic4-star-rating {
+    display: inline-block !important;
+}
+
+.searchbar-input {
+    padding-inline-start: 40px!important;
+}
+.gm-style-iw {
+    max-width: 140px!important;
+    max-height: 150px !important;
+    padding-left: 16px!important;
+    padding-right: 16px!important;
+
+    h6 {
+        font-size: 13px;
+        margin-top: 0;
+    }
+    p.price {
+        margin-top: 0px;
+    }
+    img {
+        // max-width: none;
+        width: 100%;
+        height: 58px;
+    }
+}
+
+* {
+    font-family: Montserrat-Regular !important;
+}

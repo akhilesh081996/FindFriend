@@ -1,0 +1,562 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col class="ion-no-padding">
+      <ion-button class="back-btn" (click)="back()"><ion-icon src="assets/imgs/left-arrow.svg"></ion-icon></ion-button>  
+      <div class="top-bg">
+      <img *ngIf="user_info?.user_background_image == 'http://1.gravatar.com/avatar/1aedb8d9dc4751e229a335e371db8058?s=96&d=mm&r=g'" src="assets/imgs/banner.png">
+      <img *ngIf="user_info?.user_background_image != 'http://1.gravatar.com/avatar/1aedb8d9dc4751e229a335e371db8058?s=96&d=mm&r=g'" src="{{user_info?.user_background_image}}">
+    </div>
+      <ion-list class="user-desc">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img src="{{user_info?.userImage}}">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{user_info?.shop_name}}</h2>
+            <section>
+              <!-- <ion-icon name="star"></ion-icon> -->
+            </section>
+            <!-- <h6>{{user_info?.shop_location}}</h6> -->
+            <!-- <span>Offer services</span> -->
+          </ion-label>
+        </ion-item>
+        </ion-list>
+      <div class="take-action">
+        <!-- <ion-button class="check" (click)="checktabav()" *ngIf="!checkavalibitytab">check availability</ion-button> -->
+        <!-- <ion-button class="check" (click)="checktabav()" *ngIf="checkavalibitytab">See activity</ion-button> -->
+        <ion-button class="review" (click)="sendToMessage(userProfile)">Message</ion-button>
+      </div>
+      <div  class="desc">
+        <h2>About</h2>
+        <p [innerHTML]="user_info?.shop_about"> </p>
+      </div>
+      <div  class="common-interest">
+        <h2>Common Interest</h2>
+        <!-- <span *ngFor="let data of user_info?.offer_services">
+          <ion-label>{{data}}</ion-label>
+        </span> -->
+        <section >
+          <a  *ngFor="let data of user_info?.offer_services">{{data}}</a>
+        </section>
+      </div>
+      <div class="schedule-time" *ngIf="!checkavalibitytab">
+        <h3>Plan an activity</h3>
+        <ion-list>
+          <ion-radio-group >           
+            <ion-item *ngFor="let data of user_info?.activity" (click)="selectact(data)">
+              <ion-label>{{data}}</ion-label>
+              <ion-radio slot="start" value="{{data}}"></ion-radio>
+            </ion-item>
+            </ion-radio-group>
+            </ion-list>
+      </div>
+      <div class="active-time" *ngIf="checkavalibitytab">
+        <h2>active time</h2>
+        <ion-list>
+          <ion-item (click)="selectweek(11)" id="11"> 
+            <ion-label>m</ion-label>
+          </ion-item>
+          <ion-item (click)="selectweek(12)" id="12">
+            <ion-label>t</ion-label>
+          </ion-item>
+          <ion-item (click)="selectweek(13)" id="13">
+            <ion-label>w</ion-label>
+          </ion-item>
+          <ion-item (click)="selectweek(14)" id="14">
+            <ion-label>t</ion-label>
+          </ion-item>
+          <ion-item (click)="selectweek(15)" id="15">
+            <ion-label>f</ion-label>
+          </ion-item>
+          <ion-item (click)="selectweek(16)" id="16">
+            <ion-label>s</ion-label>
+          </ion-item>
+          <ion-item (click)="selectweek(17)" id="17">
+            <ion-label>s</ion-label>
+          </ion-item>
+          </ion-list>
+      </div>
+      <div class="time-option" *ngIf="mondayactive">                
+        <ion-list>
+            <ion-item>
+              <ion-label>Morning <span>8:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="monday8am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>9:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="monday9am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>10:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="monday10am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>11:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="monday11am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="monday12PM" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="monday1PM" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="monday2PM" disabled></ion-checkbox>
+            </ion-item>  
+          <ion-item>
+            <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="monday3PM" disabled></ion-checkbox>
+          </ion-item>        
+          <ion-item>
+            <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="monday4PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="monday5PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>6:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="monday6PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>7:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="monday7PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>8:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="monday8PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>9:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="monday9PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>10:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="monday10PM" disabled></ion-checkbox>
+          </ion-item>  
+        <ion-item>
+          <ion-label>Night <span>11:00 PM & up</span></ion-label>
+          <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="monday11PM" disabled></ion-checkbox>
+        </ion-item>               
+            </ion-list>
+      </div>
+      <div class="time-option" *ngIf="tuesdayactive">                
+        <ion-list>
+            <ion-item>
+              <ion-label>Morning <span>8:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="tuesday8am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>9:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="tuesday9am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>10:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="tuesday10am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>11:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="tuesday11am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="tuesday12PM" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="tuesday1PM" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="tuesday2PM" disabled></ion-checkbox>
+            </ion-item>  
+          <ion-item>
+            <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="tuesday3PM" disabled></ion-checkbox>
+          </ion-item>        
+          <ion-item>
+            <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="tuesday4PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="tuesday5PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>6:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="tuesday6PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>7:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="tuesday7PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>8:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="tuesday8PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>9:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="tuesday9PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>10:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="tuesday10PM" disabled></ion-checkbox>
+          </ion-item>  
+        <ion-item>
+          <ion-label>Night <span>11:00 PM & up</span></ion-label>
+          <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="tuesday11PM" disabled></ion-checkbox>
+        </ion-item>               
+            </ion-list>
+      </div>
+      <div class="time-option" *ngIf="wednesdayactive">                
+        <ion-list>
+            <ion-item>
+              <ion-label>Morning <span>8:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="wednesday8am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>9:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="wednesday9am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>10:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="wednesday10am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>11:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="wednesday11am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="wednesday12PM" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="wednesday1PM" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="wednesday2PM" disabled></ion-checkbox>
+            </ion-item>  
+          <ion-item>
+            <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="wednesday3PM" disabled></ion-checkbox>
+          </ion-item>        
+          <ion-item>
+            <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="wednesday4PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="wednesday5PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>6:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="wednesday6PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>7:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="wednesday7PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>8:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="wednesday8PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>9:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="wednesday9PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>10:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="wednesday10PM" disabled></ion-checkbox>
+          </ion-item>  
+        <ion-item>
+          <ion-label>Night <span>11:00 PM & up</span></ion-label>
+          <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="wednesday11PM" disabled></ion-checkbox>
+        </ion-item>               
+            </ion-list>
+      </div>
+      <div class="time-option" *ngIf="thursdayactive">                
+        <ion-list>
+            <ion-item>
+              <ion-label>Morning <span>8:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="thursday8am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>9:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="thursday9am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>10:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="thursday10am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>11:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="thursday11am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="thursday12PM" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="thursday1PM" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="thursday2PM" disabled></ion-checkbox>
+            </ion-item>  
+          <ion-item>
+            <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="thursday3PM" disabled></ion-checkbox>
+          </ion-item>        
+          <ion-item>
+            <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="thursday4PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="thursday5PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>6:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="thursday6PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>7:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="thursday7PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>8:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="thursday8PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>9:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="thursday9PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>10:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="thursday10PM" disabled></ion-checkbox>
+          </ion-item>  
+        <ion-item>
+          <ion-label>Night <span>11:00 PM & up</span></ion-label>
+          <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="thursday11PM" disabled></ion-checkbox>
+        </ion-item>               
+            </ion-list>
+      </div>
+      <div class="time-option" *ngIf="fridayactive">                
+        <ion-list>
+            <ion-item>
+              <ion-label>Morning <span>8:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="friday8am"  disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>9:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="friday9am"  disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>10:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="friday10am"  disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>11:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="friday11am"  disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="friday12PM"  disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="friday1PM"  disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="friday2PM"  disabled></ion-checkbox>
+            </ion-item>  
+          <ion-item>
+            <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="friday3PM"  disabled></ion-checkbox>
+          </ion-item>        
+          <ion-item>
+            <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="friday4PM"  disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="friday5PM"  disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>6:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="friday6PM"  disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>7:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="friday7PM"  disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>8:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="friday8PM"  disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>9:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="friday9PM"  disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>10:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="friday10PM"  disabled></ion-checkbox>
+          </ion-item>  
+        <ion-item>
+          <ion-label>Night <span>11:00 PM & up</span></ion-label>
+          <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="friday11PM"  disabled></ion-checkbox>
+        </ion-item>               
+            </ion-list>
+      </div>
+      <div class="time-option" *ngIf="saturdayactive">                
+        <ion-list>
+            <ion-item>
+              <ion-label>Morning <span>8:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="saturday8am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>9:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="saturday9am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>10:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="saturday10am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>11:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="saturday11am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="saturday12PM" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="saturday1PM" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="saturday2PM" disabled></ion-checkbox>
+            </ion-item>  
+          <ion-item>
+            <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="saturday3PM" disabled></ion-checkbox>
+          </ion-item>        
+          <ion-item>
+            <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="saturday4PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="saturday5PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>6:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="saturday6PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>7:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="saturday7PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>8:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="saturday8PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>9:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="saturday9PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>10:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="saturday10PM" disabled></ion-checkbox>
+          </ion-item>  
+        <ion-item>
+          <ion-label>Night <span>11:00 PM & up</span></ion-label>
+          <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="saturday11PM" disabled></ion-checkbox>
+        </ion-item>               
+            </ion-list>
+      </div>
+      <div class="time-option" *ngIf="sundayactive">                
+        <ion-list>
+            <ion-item>
+              <ion-label>Morning <span>8:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="sunday8am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>9:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="sunday9am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>10:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="sunday10am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Morning <span>11:00 AM</span></ion-label>
+              <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="sunday11am" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="sunday12PM" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="sunday1PM" disabled></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+              <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="sunday2PM" disabled></ion-checkbox>
+            </ion-item>  
+          <ion-item>
+            <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="sunday3PM" disabled></ion-checkbox>
+          </ion-item>        
+          <ion-item>
+            <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="sunday4PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="sunday5PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>6:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="sunday6PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>7:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="sunday7PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>8:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="sunday8PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>9:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="sunday9PM" disabled></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Night <span>10:00 PM</span></ion-label>
+            <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="sunday10PM" disabled></ion-checkbox>
+          </ion-item>  
+        <ion-item>
+          <ion-label>Night <span>11:00 PM & up</span></ion-label>
+          <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="sunday11PM" disabled></ion-checkbox>
+        </ion-item>               
+            </ion-list>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

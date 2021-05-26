@@ -1,0 +1,179 @@
+<ion-header class="header_sec" no-padding>
+    <ion-toolbar class="ion-no-padding">
+        <ion-buttons slot="start" class="back_buttons">
+            <ion-back-button defaultHref="/tabs"></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-icon name="notifications"></ion-icon>
+        </ion-buttons>
+        <ion-title>Trainer</ion-title>
+    </ion-toolbar>
+    <img src="assets/newimage/top-bg.png" class="cover_img">
+    <ion-row class="user_row">
+        <ion-col size="12" *ngIf="ready">
+            <img src="{{user_info.userImage}}" class="inner_img">
+        </ion-col>
+    </ion-row>
+    <div class="two_icons">
+        <img src="assets/imgs/72Asset 1.png" class="assets1">
+        <img src="assets/imgs/72Asset 2.png" class="assets2">
+    </div>
+
+</ion-header>
+
+<ion-content forceOverscroll="false">
+
+    <ion-grid class="barber_pro" *ngIf="ready">
+        <ion-row class="User_details">
+            <ion-col size="12">
+                <h3>{{user_info.shop_name}}</h3>
+                <!-- <p>
+          <ion-icon name="pin"></ion-icon>{{user_info.shop_address1}} {{user_info.shop_address2}}
+          {{user_info.shop_city}} {{user_info.shop_state}}, USA
+        </p> -->
+                <span><ion-icon name="star"></ion-icon>4.5(153)</span>
+            </ion-col>
+
+        </ion-row>
+
+
+
+        <ion-row class="contact_img">
+
+            <ion-col size="4" class="ion-text-center">
+                <p class="time_sec">15<span>/hr</span></p>
+                <p class="rate_sec">Rate</p>
+            </ion-col>
+            <ion-col size="4" class="ion-text-center">
+                <!-- <a href="mailto:{{user_info.shop_email}}">  -->
+                <img src="assets/imgs/data.png">
+                <p>Personal Trainer</p>
+                <!-- </a> -->
+            </ion-col>
+            <ion-col size="4" class="ion-text-center">
+                <img src="assets/imgs/pin.png">
+                <p>{{user_info.shop_address1}} {{user_info.shop_address2}} {{user_info.shop_city}} {{user_info.shop_state}}</p>
+            </ion-col>
+            <!-- <ion-col size="3" class="ion-text-center" routerLink="/appointments">
+        <img src="assets/imgs/sendmsg.png">
+        <p>Make Appointment</p>
+    </ion-col> -->
+        </ion-row>
+
+        <ion-row class="shop_sec">
+            <ion-col size="12">
+                <h5>Active Hours</h5>
+                <ion-row class="day_sec">
+                    <ion-col size="4">
+                        <p [ngClass]="is_monday?'success':'error'">MON</p>
+                        <p [ngClass]="is_tuesday?'success':'error'">Tuesday</p>
+                        <p [ngClass]="is_wednesday?'success':'error'">Wedesday</p>
+                        <p [ngClass]="is_thursday?'success':'error'">Thursday</p>
+                        <p [ngClass]="is_friday?'success':'error'">Friday</p>
+                        <p [ngClass]="is_saturdy?'success':'error'">Sat</p>
+                        <p [ngClass]="is_sunday?'success':'error'">Sun</p>
+                    </ion-col>
+                    <ion-col size="8">
+                        <p *ngIf="is_monday">{{monday.nfrom_time}}</p>
+                        <p *ngIf="!is_monday" class="error">Closed</p>
+                        <p *ngIf="is_tuesday">{{tuesday.nfrom_time}} - {{tuesday.nto_time}}</p>
+                        <p *ngIf="!is_tuesday" class="error">Closed</p>
+                        <p *ngIf="is_wednesday">{{wednesday.nfrom_time}} - {{wednesday.nto_time}}</p>
+                        <p *ngIf="!is_wednesday" class="error">Closed</p>
+                        <p *ngIf="is_thursday">{{thursday.nfrom_time}} - {{thursday.nto_time}}</p>
+                        <p *ngIf="!is_thursday" class="error">Closed</p>
+                        <p *ngIf="is_friday">{{friday.nfrom_time}} - {{friday.nto_time}}</p>
+                        <p *ngIf="!is_friday" class="error">Closed</p>
+                        <p *ngIf="is_saturdy">{{saturdy.nfrom_time}} - {{saturdy.nto_time}}</p>
+                        <p *ngIf="!is_saturdy" class="error">Closed</p>
+                        <p *ngIf="is_sunday">{{sunday.nfrom_time}} - {{sunday.nto_time}}</p>
+                        <p *ngIf="!is_sunday" class="error">Unavailable</p>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+
+            <!-- <ion-col size="12">
+        <ion-row class="data_sec">
+          <ion-col size="6">
+            <p><strong>Name-</strong>{{user_info.user_display_name}}</p>
+            <p><strong>Email-</strong>{{user_info.shop_email}}</p>
+            <p><strong>Address-</strong>{{user_info.shop_address1}} {{user_info.shop_address2}} {{user_info.shop_city}}
+              {{user_info.shop_state}}, USA</p>
+            <p><strong>Phone-</strong>{{user_info.shop_phone}}</p>
+            <p><strong>Web-</strong><a href="{{user_info.shop_website}}">{{user_info.shop_website}}</a></p>
+          </ion-col>
+          <ion-col size="6" class="map_sec" *ngIf="is_map">
+            <div #map_provideview id="map_provideview"></div>
+          </ion-col>
+        </ion-row>
+      </ion-col> -->
+            <ion-col size="12" *ngIf="gallery.length >0">
+                <h5>Gallery</h5>
+                <div class="img_scroll">
+                    <ul>
+                        <li *ngFor="let g of gallery; let i=index;"><img (click)="open_gallery_modal(i, gallery)" src="{{g.thumb}}" />
+                        </li>
+                    </ul>
+                </div>
+            </ion-col>
+
+            <ion-col size="12">
+                <h5>About</h5>
+                <p class="about_com">{{user_info.shop_about}}</p>
+            </ion-col>
+
+            <ion-col size="12" *ngIf="list.length >0" class="service_Sec">
+                <h5>Services</h5>
+                <div class="services_div services">
+                    <ul>
+                        <div *ngFor="let s of list; let i=index;">
+                            <li *ngIf="s.checked">
+                                <img src="{{s.cover}}" />
+                                <p>{{s.post_title}}</p>
+                            </li>
+                        </div>
+
+                    </ul>
+                </div>
+            </ion-col>
+        </ion-row>
+
+        <div *ngIf="is_login">
+            <ion-row class="btn_sec" *ngIf="!is_private && user.role!='barber'">
+                <ion-col size="6" (click)="sendToMessage(userProfile)">
+                    <p>
+                        <ion-button>Message</ion-button>
+                    </p>
+                </ion-col>
+                <ion-col size="6" routerLink="/appointments/{{user_id}}">
+                    <p>
+                        <ion-button>Book</ion-button>
+                    </p>
+                </ion-col>
+            </ion-row>
+
+            <!-- <ion-row class="btn_sec" *ngIf="is_private">
+        <ion-col size="6" routerLink="/barbercontactinfo">
+          <p>
+            <ion-button>Edit Profile</ion-button>
+          </p>
+        </ion-col>
+        <ion-col size="6" routerLink="/services">
+          <p>
+            <ion-button>Edit Services</ion-button>
+          </p>
+        </ion-col>
+      </ion-row> -->
+        </div>
+    </ion-grid>
+</ion-content>
+<ion-footer>
+    <ion-row class="btn_sec">
+        <ion-col size="6">
+            <ion-button>Book Later</ion-button>
+        </ion-col>
+        <ion-col size="6">
+            <ion-button>Book Now</ion-button>
+        </ion-col>
+    </ion-row>
+</ion-footer>

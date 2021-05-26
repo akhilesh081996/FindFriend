@@ -1,0 +1,123 @@
+<!-- 
+
+<div class="bg">
+    <img src="assets/imgs/homebg.png" />
+  </div>
+  
+  <ion-content>
+       <ion-grid>
+          <form class="signup-form auth-form" [formGroup]="forgot_form"  (ngSubmit)="forgotpassword(forgot_form.value)" >
+          <ion-row>
+             <ion-col size="12" class="ion-text-center">
+               <div class="top-center">
+                 <div class="inner">
+                   <img src="assets/imgs/truelogo.png" class="logo_sec">
+                   <p class="sign_sec">Forgot</p>
+  
+                   <ion-item class="ion-no-padding first_item">
+                          <img src="assets/imgs/user.png">
+                     <ion-label>
+                       <ion-input type="email" formControlName="user_login" placeholder="Email" placeholder="davidsmith1234@test.com"></ion-input>
+                     </ion-label>
+                   </ion-item>
+                  
+  
+                  <ion-button expand="block" class="continue" type="submit" [disabled]="!forgot_form.valid">Submit</ion-button>
+                </div> 
+               </div>
+             </ion-col> 
+          </ion-row>
+          </form>
+       </ion-grid>
+  </ion-content>
+  <ion-footer>
+      <ion-grid class="footer_sec">
+          <ion-row>
+              <ion-col size="12" [routerLink]="['/signin']" routerDirection="forward">
+                <p>SIGN IN</p>
+              </ion-col>
+            </ion-row>
+      </ion-grid>
+  </ion-footer>
+   -->
+
+   <ion-content class="bg_img">
+    <form [formGroup]="forgot_form" (ngSubmit)="forgotpassword(forgot_form.value)">
+        <ion-grid>
+            <ion-row class="logo_sec">
+                <ion-col size="12" class="logo-bg">
+                    <img src="assets/newimage/logo-with-text.png" class="logo_img">
+                </ion-col>
+
+                <ion-col size="12" class="input_sec">
+                    <ion-item class="ion-no-padding first_item" lines="none">
+                        <img src="assets/newimage/profile.png">
+                        <ion-label>
+                            <ion-input type="text" formControlName="user_login" placeholder="Email"></ion-input>
+                        </ion-label>
+                    </ion-item>
+                    <ng-container>
+                        <p class="errp" *ngIf="forgot_form.get('user_login').hasError('required') && (forgot_form.get('user_login').dirty || forgot_form.get('user_login').touched)">
+                            <ion-icon class="erricon" name="information-circle-outline"></ion-icon>This field is required
+                        </p>
+                    </ng-container>
+                </ion-col>
+                <!-- <ion-col size="12">
+                    <div class="radio_block">
+                        <ion-radio-group value="Find a Friend">
+                            <div [class]="griffclass">
+                                <ion-radio slot="start" value="Be a Friend"  (ionSelect)="radioChecked($event)"></ion-radio>
+                                <ion-label>Be a Friend</ion-label>
+                            </div>
+                            <div [class]="biffclass">
+                                <ion-radio slot="start" value="Find a Friend" (ionSelect)="radioChecked($event)"></ion-radio>
+                                <ion-label>Find a Friend</ion-label>
+                            </div>
+
+                        </ion-radio-group>
+                    </div>
+                </ion-col> -->
+                <ion-col size="12" class="btn_sec">
+                    <ion-button shape="round" class="login_btn" type="submit" >Submit</ion-button>
+                </ion-col>
+                <ion-col size="12" class="make-new">
+                    <p>Make a new friend</p>
+                </ion-col>
+                <ion-col size="12" class="forgot_sec">
+                    <p>Already have an account?<span [routerLink]="['/login']">SIGN IN</span></p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>
+
+   <!-- <ion-content class="bg_img">
+    <form class="signup-form auth-form" [formGroup]="forgot_form"  (ngSubmit)="forgotpassword(forgot_form.value)" >
+    <ion-grid>
+      <ion-row class="logo_sec">
+        <ion-col size="12">
+          <img src="assets/imgs/logo.png" class="logo_img">
+        </ion-col>
+  
+        <ion-col size="12" class="input_sec">
+          <p class="sign_sec">Forgot</p>
+  
+          <ion-item class="ion-no-padding first_item" lines="none">
+                 <img src="assets/imgs/email.png">
+            <ion-label>
+              <ion-input type="email" formControlName="user_login" placeholder="Email"></ion-input>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+  
+        <ion-col size="12" class="btn_sec">
+          <ion-button class="login_btn" type="submit"  [disabled]="!forgot_form.valid">Submit</ion-button>
+        </ion-col>
+  
+        <ion-col size="12" class="forgot_sec">
+            <p>Already have an account? <span [routerLink]="['/signup']">Sign up</span></p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  </ion-content> -->

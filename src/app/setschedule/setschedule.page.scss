@@ -1,0 +1,471 @@
+
+.header-ios ion-toolbar:last-child {
+    --border-width: 0;
+}
+
+ion-toolbar {
+    --background: transparent;
+    --min-height: 70px;
+}   
+
+ion-header {
+    position: absolute;
+    --background: transparent;
+}
+
+
+ion-col.set-schedule {
+    padding: 0;
+    position: relative;
+}
+.calendar-header {
+    background-color: transparent;
+    margin-top: 28px;
+    margin-bottom: 12px;
+}
+.calendar-month ion-icon {
+    background: #ffffff29 !important;
+    border-radius: 100%;
+    padding: 5px;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.calendar-month ion-col[size="6"] {
+    margin: auto;
+    padding-top: 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ion-color-black-contrast) !important;
+    text-transform: uppercase;
+    // font-family: SF-UI-Display-Bold;
+}
+
+.calendar-header {
+    background-color: transparent;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.calendar-body {
+    .grid {
+        padding: 0;
+    }
+    .col:last-child {
+        border-right: none;
+    }
+    .calendar-weekday,
+    .calendar-date {
+        text-align: center;
+        margin: 0;
+        color: #424040;
+        font-family: sans-serif;
+    }
+}
+.last-month,
+.next-month {
+    color: #b1b1b1;
+    ;
+    // font-size: 90%;
+}
+.currentDate,
+.otherDate {
+    padding: 5px;
+}
+.disabledclass {
+    color: var(--ion-color-black-contrast);
+    border-radius: 100%;
+    width: 26px;
+    height: 26px;
+    display: block;
+    margin: auto;
+    position: relative;
+    /* background: #f01c18 !important; */
+    line-height: 17px !important;
+}
+
+.counter_sec .num ion-input {
+    --padding-end: 0px;
+    text-align: center!important;
+    margin-left: 11px;
+    margin-top: -21px!important;
+    max-width: 37px;
+    color: blue;
+}
+
+.disabledclass:before {
+    content: "x";
+    position: absolute;
+    z-index: 9999;
+    font-size: 24px;
+    left: 1px;
+    right: 0;
+    margin: auto;
+    top: 44%;
+    transform: translate(0%, -50%);
+    color: var(--ion-color-black-contrast);
+    font-weight: 200;
+}
+.selected-date {
+    background: var(--ion-button-color) !important;
+    color: var(--ion-color-primary-contrast);
+    border-radius: 100%;
+    width: 26px;
+    height: 26px;
+    display: block;
+    margin: auto;
+    position: relative;
+    line-height: 25px;
+}
+.selected-date1 {
+    background: #c70000 !important;
+    color: var(--ion-color-primary-contrast);
+    border-radius: 100%;
+    width: 26px;
+    height: 26px;
+    display: block;
+    margin: auto;
+    position: relative;
+    line-height: 25px;
+}
+.unselected-date {
+    border: none;
+}
+.calendar-date span {
+    display: block;
+    width: 26px;
+    height: 26px;
+    margin: auto;
+    line-height: 25px;
+}
+.calendar-date {
+    font-size: 11px;
+    color: var(--ion-color-black-contrast);
+    font-weight: bold;
+    // font-family: SF-UI-Display-Regular;
+}
+.calendar-weekday {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    // font-family: SF-UI-Display-Regular;
+    // font-family: SFUIDisplay-Bold;
+}
+.calendar-body {
+    color: #d2d0d0;
+    padding-bottom: 22px;
+}
+
+.activity-note {
+    background: url('/assets/imgs/bg-img.png');
+    background-size: cover;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 40px;
+}
+
+
+
+
+.activity-note ion-thumbnail {
+    max-width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;   
+}
+
+
+ion-card-header {
+    padding: 10px;
+    background: #032c65;
+}
+
+ion-card-subtitle span {
+    background: #b1d7ff;
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+ion-card-subtitle {text-transform: none;font-size: 12px;letter-spacing: 0;display: flex;justify-content: space-between;align-items: center;color: #fff;}
+
+ion-card {
+    box-shadow: none;
+    border-radius: 0;
+}
+ion-card-content {
+    background: #fff;
+    width: 100%;
+    padding: 10px;
+    float: left;
+    ion-label p {
+        margin-bottom: 15px!important;
+        float: left;
+        width: 100%;
+        display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+    }
+}
+
+// ion-card-content ion-label p {
+//     display: -webkit-box;
+//     -webkit-line-clamp: 2;
+//     -webkit-box-orient: vertical;
+//     overflow: hidden!important;
+//     margin-bottom: 23px;
+//     width: 100%;
+//     float: left;
+// }
+
+section {
+    display: flex;
+    float: left;
+    width: 100%;
+    ion-thumbnail {
+        width: 42px!important;
+        height: 42px!important;
+    }
+    ion-textarea {
+        background: #d8d8d8 !important;
+        --padding-top: 10px;
+        --padding-end: 10px;
+        --padding-bottom: 0px;
+        --padding-start: 10px;
+        font-size: 12px;
+        line-height: 17px;
+        border-radius: 8px;
+        margin-left: 6px;
+    }
+    ion-input {
+        background: #d8d8d8 !important;
+        --padding-top: 10px;
+        --padding-end: 10px;
+        --padding-bottom: 0px;
+        --padding-start: 10px;
+        font-size: 12px;
+        line-height: 17px;
+        border-radius: 8px;
+        margin-left: 6px;
+        color: #000;
+    }
+}
+
+.schedule-date h2 {
+    text-align: center;
+    font-size: 14px;
+}
+
+
+.schedule-date ul {
+    width: 100%;
+    list-style: none;
+    margin: 10px 0 0px 0;
+    padding: 0 0 0 10px;
+    overflow: scroll;
+    white-space: nowrap;
+    display: flex;
+    float: left;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 16px;
+}
+
+.schedule-date ul li {
+    min-width: 50px;
+    background: #d8d8d8;
+    margin-right: 8px;
+    padding: 12px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 10px;
+    border-radius: 6px;
+}
+
+.schedule-date ul li b {
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+.activedate{
+    background: #004a9b !important;
+    color: white;
+}
+// ===========  Schedule Time  ===========
+.schedule-time {
+    width: 100%;
+    float: left;
+    padding: 5px;
+    h2 {
+        font-size: 14px;
+        text-align: center;
+    }
+    ion-radio-group {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        border-bottom: 1px solid #e8e8e8;
+        padding-bottom: 15px;
+        ion-item {
+            --min-height: 44px;
+            --transition: background-color 200ms linear;
+            --padding-start: 0;
+            --inner-padding-end: 0;
+            --inner-border-width: 0;
+            --background: #c8c8c8;
+            width: calc(25% - 10px);
+            margin: 5px;
+            display: block;
+            border-radius: 8px;
+            --padding-top: 6px;
+            --padding-bottom: 6px;
+            ion-radio {
+                position: absolute;
+                opacity: 0;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                display: block;
+            }
+            ion-label {
+                font-size: 8px!important;
+                display: flex!important;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-transform: uppercase;
+                margin: 0;
+                line-height: 13px;
+                span {
+                    font-size: 12px;
+                }
+
+            }
+        }
+    }
+    ion-item.item-radio-checked {
+        --background: #032c65!important;
+        color: #fff;
+    }
+}
+
+
+.action {
+    width: 100%;
+    float: left;
+    padding: 0 30px;
+}
+
+ion-button.send-request {
+    width: 100%;
+    border-radius: 40px;
+    --border-radius: 40px;
+    --background: #004a9b;
+    position: relative;
+    height: 46px;
+    z-index: 100;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 30px;
+    margin-top: 15px;
+} 
+ion-button.send-request span {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 20px;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ion-button.back-btn {
+    width: 60px;
+    border-radius: 0px 30px 30px 0px;
+    --border-radius: 0px 30px 30px 0px;
+    position: absolute;
+    margin: 0;
+    top: 16px;
+    left: 0;
+    background: #004a9b;
+    --background: #004a9b;
+    --padding-start: 0em;
+    --padding-end: 0em;
+}
+
+
+.schedule-act {
+    background: #788a99;
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+.schedule-act ion-button {
+    background: transparent;
+    --background: transparent;
+    border-radius: 6px;
+    --border-radius: 6px;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    color: #333;
+    text-transform: capitalize;
+    font-size: 12px;
+    height: 44px;
+}
+
+.schedule-act ion-button.active {
+    background: #004a9b;
+    --background: #004a9b;
+    color: #fff;
+}
+
+ion-list {
+    margin-bottom: 0;
+}
+
+ion-row.calendar_sec.appoint_sec {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 7px 21px #d6d6d6;
+    overflow: hidden;
+}
+
+.schedule-setting {
+    padding: 10px 20px;
+}
+
+ion-col.calendar-month {
+    background: #032c65;
+    padding: 10px 15px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ion-col.calendar-month h2 {
+    font-size: 14px;
+    margin: 0;
+    color: #fff;
+}
+
+ion-row.calendar-date {
+    width: 98%;
+    margin: 0 auto;
+}
+
+ion-row.calendar-date ion-col {
+    min-width: 14%!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}

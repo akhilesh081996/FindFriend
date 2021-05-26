@@ -1,0 +1,206 @@
+.header-ios ion-toolbar:last-child {
+    --border-width: 0;
+}
+
+ion-toolbar {
+    --background: transparent;
+}
+
+ion-header {
+    position: absolute;
+}
+
+
+.slide-content {
+    padding: 0 15px;
+    p {
+        font-size: 12px;
+        line-height: 20px;
+        display: -webkit-box;
+        -webkit-line-clamp: 7;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
+    h2 {
+        margin-top: 10px;
+        font-size: 20px;
+        font-family: Montserrat-Bold!important;
+        text-transform: capitalize;
+        letter-spacing: 0px;
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+}
+
+.slide-content h2:after {content: '';width: 50px;height: 4px;background: #004a9b;position: absolute;left: 50%;bottom: -10px;border-radius: 4px;transform: translateX(-50%);}
+
+ion-button {
+    margin-top: 30px;
+    width: 100%;
+    border-radius: 40px;
+    --border-radius: 40px;
+    --background: #004a9b;
+    position: relative;
+    height: 46px;
+    z-index: 100;
+    margin-bottom: 30px;
+} 
+ion-button span {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 20px;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+h6 {
+    font-size: 12px;
+    color: #004a9b;
+    margin: 0;
+}
+
+.slide {
+    height: 100%;
+    float: left;
+    width: 100%;
+}
+
+.slide-content ion-img {
+    max-width: 20px;
+    margin: 0 auto;
+}
+.offer-slide p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+ion-button.back-btn {
+    width: 60px;
+    border-radius: 0;
+    --border-radius: 0px 30px 30px 0px;
+    position: absolute;
+    margin: 0;
+    top: 16px;
+    height: 40px;
+}
+
+
+// ============= Common Interest   =============
+
+
+.common-interest {
+    width: 100%;
+    float: left;
+    padding: 0 15px;
+    h2 {
+        width: 100%;
+        float: left;
+        margin: 20px 0 15px;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #091b3e;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;     
+    }
+
+
+    ion-list {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-bottom: 0px;
+        margin: 16px 0 0 0;
+        ion-item {
+            width: calc(50% - 10px);
+            --padding-start: 0px;
+            --inner-padding-end: 0px;
+            --inner-border-width: 0px;
+            --min-height: 35px;
+        }  
+        ion-checkbox {
+            --border-radius: 4px!important;
+            --background: #004a9b;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }   
+        ion-label {
+            font-size: 12px !important;
+            color: #17457e !important;
+            font-weight: 700;
+        } 
+        ion-item.item-label.item-checkbox-checked ion-label {
+            color: #427aff!important;
+        }
+    }
+}
+
+.common-interest ion-list ion-item:nth-child(2n-1) {
+    border-right: 1px solid #57758e;
+}
+
+
+
+section {
+    width: 100%;
+    max-width: 258px;
+    margin: 20px auto;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 10px 0px;
+    ion-radio {
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        border: 1px solid;
+    }
+    ion-item {
+        --padding-start: 0px;
+        --inner-padding-end: 0px;
+        --inner-border-width: 0;
+        --min-height: 35px;
+        ion-label {
+            font-size: 14px!important;
+            font-weight: 700;
+        }
+    }
+}
+
+
+
+.slide-content.offer {
+    padding: 0 30px;
+    p {
+        text-align: left;
+    }
+}
+
+.slide-content.offer ul {
+    padding: 0 0 0 20px;
+    text-align: left;
+}
+
+
+.slide-content.offer  section {
+    width: 100%;
+    max-width: 100%;
+    margin: 0px auto;
+    padding: 0px 0px;
+}
+
+.slide-content.offer h6 {
+    font-size: 14px;
+    text-align: left;
+    line-height: 21px;
+}

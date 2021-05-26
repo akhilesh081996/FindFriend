@@ -1,0 +1,1064 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" class="back_buttons" >
+      <ion-menu-button></ion-menu-button>
+      </ion-button>
+      <ion-button slot="end" class="edit_buttons" (click)="selectImage('userimage')">
+        <ion-icon src="assets/newimage/edit.svg" ></ion-icon>edit image
+        </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12" class="top-section">
+        <ion-img *ngIf="user_info?.user_background_image == 'http://1.gravatar.com/avatar/1aedb8d9dc4751e229a335e371db8058?s=96&d=mm&r=g'" src="assets/newimage/train-track.jpg" class="top-section-bg"></ion-img>
+        <ion-img *ngIf="user_info?.user_background_image != 'http://1.gravatar.com/avatar/1aedb8d9dc4751e229a335e371db8058?s=96&d=mm&r=g'" src="{{user_info?.user_background_image}}" class="top-section-bg"></ion-img>
+        <div class="top-section-content">
+          <ion-img *ngIf="userImage" src="{{userImage}}"></ion-img>
+          <h2>{{name}}</h2>
+          <!-- <span>knoxville TN</span> -->
+        </div>   
+       </ion-col>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-list class="offer-service">
+          <ion-item>
+            <ion-label>Offer Services<span *ngIf="userserviceinfo">On</span><span *ngIf="!userserviceinfo">Off</span></ion-label>
+            <ion-toggle [(ngModel)]="userserviceinfo"></ion-toggle>
+          </ion-item>
+        </ion-list>
+          <div class="tabs-info">
+            <ion-segment  (ionChange)="segmentChanged($event)" [(ngModel)]="segment">
+              <ion-segment-button value="0">
+                <ion-label>availability</ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="1">
+                <ion-label>Common Interest</ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="2">
+                <ion-label>About</ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="3">
+                <ion-label>activity</ion-label>
+              </ion-segment-button>            
+            </ion-segment>
+          </div>
+          <!-- =================  Availability  ================= -->
+      <ion-slides #slides (ionSlideDidChange)="slideChanged()" >  
+        <ion-slide>
+          <div class="availability">
+            <div class="week-activity">
+              <h2>DAYS AVAILABLE</h2>
+              <ion-list>
+                <ion-item>
+                  <ion-label>m</ion-label>
+                  <ion-checkbox  slot="start" [(ngModel)]="is_monday"></ion-checkbox>
+                </ion-item>
+                  <ion-item>
+                    <ion-label>t</ion-label>
+                    <ion-checkbox  slot="start" [(ngModel)]="is_tuesday"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>w</ion-label>
+                    <ion-checkbox  slot="start" [(ngModel)]="is_wednesday"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>t</ion-label>
+                    <ion-checkbox  slot="start" [(ngModel)]="is_thursday"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>f</ion-label>
+                    <ion-checkbox  slot="start" [(ngModel)]="is_friday"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>s</ion-label>
+                    <ion-checkbox  slot="start" [(ngModel)]="is_saturdy"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>s</ion-label>
+                    <ion-checkbox  slot="start" [(ngModel)]="is_sunday"></ion-checkbox>
+                  </ion-item>
+              </ion-list>
+            </div>
+            <div class="active-time">
+              <h2>active time <span>same time daily  <ion-toggle [(ngModel)]="sametimeallday" (ionChange)="sameTimeFunction()">
+              </ion-toggle></span></h2>
+            <ion-segment  (ionChange)="segmentChangedtime($event)" class="time-segment-btn" [(ngModel)]="segmenttime" *ngIf="!sametimeallday">
+              <ion-segment-button value="0">
+                <ion-label>m</ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="1">
+                <ion-label>t</ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="2">
+                <ion-label>w</ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="3">
+                <ion-label>t</ion-label>
+              </ion-segment-button>            
+              <ion-segment-button value="4">
+                <ion-label>f</ion-label>
+              </ion-segment-button>            
+              <ion-segment-button value="5">
+                <ion-label>s</ion-label>
+              </ion-segment-button>            
+              <ion-segment-button value="6">
+                <ion-label>s</ion-label>
+              </ion-segment-button>            
+            </ion-segment>
+            </div>
+            <ion-slides #slidestime (ionSlideDidChange)="slideChangedtime()" scrollbar="true" class="timesegment">  
+              <ion-slide *ngIf="sametimeallday == true">
+                <div class="time-option">                
+                  <ion-list>
+                    <ion-item>
+                      <ion-label>Morning <span>8:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="monday8am"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>9:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="monday9am"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>10:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="monday10am"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>11:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="monday11am"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="monday12PM"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="monday1PM"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+                        <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="monday2PM"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>  
+                    <ion-item>
+                      <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="monday3PM"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>        
+                    <ion-item>
+                      <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="monday4PM"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="monday5PM"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>6:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="monday6PM"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>7:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="monday7PM"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>8:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="monday8PM"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>9:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="monday9PM"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>10:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="monday10PM"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>  
+                    <ion-item>
+                      <ion-label>Night <span>11:00 PM & up</span></ion-label>
+                      <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="monday11PM"  (ionChange)="selectSaameTime($event)"></ion-checkbox>
+                    </ion-item>               
+                </ion-list>
+                </div>
+                </ion-slide>
+              <ion-slide  *ngIf="sametimeallday == false">
+              <div class="time-option">                
+                <ion-list>
+                    <ion-item>
+                      <ion-label>Morning <span>8:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="monday8am"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>9:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="monday9am"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>10:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="monday10am"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>11:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="monday11am"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="monday12PM"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="monday1PM"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="monday2PM"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                    </ion-item>  
+                  <ion-item>
+                    <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="monday3PM"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                  </ion-item>        
+                  <ion-item>
+                    <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="monday4PM"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="monday5PM"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>6:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="monday6PM"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>7:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="monday7PM"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>8:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="monday8PM"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>9:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="monday9PM"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>10:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="monday10PM"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                  </ion-item>  
+                <ion-item>
+                  <ion-label>Night <span>11:00 PM & up</span></ion-label>
+                  <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="monday11PM"  (ionChange)="selectmondy($event)"></ion-checkbox>
+                </ion-item>               
+                    </ion-list>
+              </div>
+              </ion-slide>
+              <ion-slide *ngIf="sametimeallday == false">
+              <div class="time-option" >                
+                <ion-list>
+                    <ion-item>
+                      <ion-label>Morning <span>8:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="tuesday8am"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>9:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="tuesday9am"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>10:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="tuesday10am"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>11:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="tuesday11am"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="tuesday12PM"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="tuesday1PM"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="tuesday2PM"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                    </ion-item>  
+                  <ion-item>
+                    <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="tuesday3PM"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                  </ion-item>        
+                  <ion-item>
+                    <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="tuesday4PM"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="tuesday5PM"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>6:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="tuesday6PM"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>7:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="tuesday7PM"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>8:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="tuesday8PM"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>9:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="tuesday9PM"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>10:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="tuesday10PM"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                  </ion-item>  
+                <ion-item>
+                  <ion-label>Night <span>11:00 PM & up</span></ion-label>
+                  <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="tuesday11PM"  (ionChange)="selecttuesday($event)"></ion-checkbox>
+                </ion-item>               
+                    </ion-list>
+              </div>
+              </ion-slide>
+              <ion-slide *ngIf="sametimeallday == false">
+              <div class="time-option" >                
+                <ion-list>
+                    <ion-item>
+                      <ion-label>Morning <span>8:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="wednesday8am"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>9:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="wednesday9am"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>10:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="wednesday10am"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>11:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="wednesday11am"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="wednesday12PM"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="wednesday1PM"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="wednesday2PM"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                    </ion-item>  
+                  <ion-item>
+                    <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="wednesday3PM"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                  </ion-item>        
+                  <ion-item>
+                    <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="wednesday4PM"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="wednesday5PM"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>6:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="wednesday6PM"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>7:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="wednesday7PM"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>8:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="wednesday8PM"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>9:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="wednesday9PM"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>10:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="wednesday10PM"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                  </ion-item>  
+                <ion-item>
+                  <ion-label>Night <span>11:00 PM & up</span></ion-label>
+                  <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="wednesday11PM"  (ionChange)="selectwednesdy($event)"></ion-checkbox>
+                </ion-item>               
+                    </ion-list>
+              </div>
+              </ion-slide>
+              <ion-slide *ngIf="sametimeallday == false">
+                <div class="time-option" >                
+                  <ion-list>
+                      <ion-item>
+                        <ion-label>Morning <span>8:00 AM</span></ion-label>
+                        <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="thursday8am"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Morning <span>9:00 AM</span></ion-label>
+                        <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="thursday9am"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Morning <span>10:00 AM</span></ion-label>
+                        <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="thursday10am"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Morning <span>11:00 AM</span></ion-label>
+                        <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="thursday11am"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+                        <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="thursday12PM"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+                        <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="thursday1PM"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+                        <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="thursday2PM"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                      </ion-item>  
+                    <ion-item>
+                      <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="thursday3PM"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                    </ion-item>        
+                    <ion-item>
+                      <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="thursday4PM"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="thursday5PM"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>6:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="thursday6PM"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>7:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="thursday7PM"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>8:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="thursday8PM"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>9:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="thursday9PM"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>10:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="thursday10PM"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                    </ion-item>  
+                  <ion-item>
+                    <ion-label>Night <span>11:00 PM & up</span></ion-label>
+                    <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="thursday11PM"  (ionChange)="selectthursdy($event)"></ion-checkbox>
+                  </ion-item>               
+                      </ion-list>
+                </div>
+              </ion-slide>
+              <ion-slide *ngIf="sametimeallday == false">
+                <div class="time-option" >                
+                  <ion-list>
+                      <ion-item>
+                        <ion-label>Morning <span>8:00 AM</span></ion-label>
+                        <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="friday8am"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Morning <span>9:00 AM</span></ion-label>
+                        <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="friday9am"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Morning <span>10:00 AM</span></ion-label>
+                        <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="friday10am"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Morning <span>11:00 AM</span></ion-label>
+                        <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="friday11am"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+                        <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="friday12PM"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+                        <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="friday1PM"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+                        <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="friday2PM"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                      </ion-item>  
+                    <ion-item>
+                      <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="friday3PM"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                    </ion-item>        
+                    <ion-item>
+                      <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="friday4PM"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="friday5PM"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>6:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="friday6PM"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>7:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="friday7PM"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>8:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="friday8PM"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>9:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="friday9PM"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>10:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="friday10PM"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                    </ion-item>  
+                  <ion-item>
+                    <ion-label>Night <span>11:00 PM & up</span></ion-label>
+                    <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="friday11PM"  (ionChange)="selectfridy($event)"></ion-checkbox>
+                  </ion-item>               
+                      </ion-list>
+                </div>
+              </ion-slide>
+              <ion-slide *ngIf="sametimeallday == false">
+                <div class="time-option">                
+                  <ion-list>
+                      <ion-item>
+                        <ion-label>Morning <span>8:00 AM</span></ion-label>
+                        <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="saturday8am"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Morning <span>9:00 AM</span></ion-label>
+                        <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="saturday9am"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Morning <span>10:00 AM</span></ion-label>
+                        <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="saturday10am"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Morning <span>11:00 AM</span></ion-label>
+                        <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="saturday11am"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+                        <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="saturday12PM"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+                        <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="saturday1PM"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+                        <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="saturday2PM"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                      </ion-item>  
+                    <ion-item>
+                      <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="saturday3PM"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                    </ion-item>        
+                    <ion-item>
+                      <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="saturday4PM"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="saturday5PM"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>6:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="saturday6PM"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>7:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="saturday7PM"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>8:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="saturday8PM"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>9:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="saturday9PM"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Night <span>10:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="saturday10PM"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                    </ion-item>  
+                  <ion-item>
+                    <ion-label>Night <span>11:00 PM & up</span></ion-label>
+                    <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="saturday11PM"  (ionChange)="selectsaturdy($event)"></ion-checkbox>
+                  </ion-item>               
+                      </ion-list>
+                </div>  
+              </ion-slide>
+              <ion-slide *ngIf="sametimeallday == false">
+              <div class="time-option">                
+                <ion-list>
+                    <ion-item>
+                      <ion-label>Morning <span>8:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="8:00 AM" [(ngModel)]="sunday8am"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>9:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="9:00 AM" [(ngModel)]="sunday9am"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>10:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="10:00 AM" [(ngModel)]="sunday10am"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Morning <span>11:00 AM</span></ion-label>
+                      <ion-checkbox  slot="start" value="11:00 AM" [(ngModel)]="sunday11am"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>12:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="12:00 PM" [(ngModel)]="sunday12PM"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>1:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="1:00 PM" [(ngModel)]="sunday1PM"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Afternoon <span>2:00 PM</span></ion-label>
+                      <ion-checkbox  slot="start" value="2:00 PM" [(ngModel)]="sunday2PM"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                    </ion-item>  
+                  <ion-item>
+                    <ion-label>Afternoon <span>3:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="3:00 PM" [(ngModel)]="sunday3PM"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                  </ion-item>        
+                  <ion-item>
+                    <ion-label>Afternoon <span>4:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="4:00 PM" [(ngModel)]="sunday4PM"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Afternoon <span>5:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="5:00 PM" [(ngModel)]="sunday5PM"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>6:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="6:00 PM" [(ngModel)]="sunday6PM"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>7:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="7:00 PM" [(ngModel)]="sunday7PM"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>8:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="8:00 PM" [(ngModel)]="sunday8PM"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>9:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="9:00 PM" [(ngModel)]="sunday9PM"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Night <span>10:00 PM</span></ion-label>
+                    <ion-checkbox  slot="start" value="10:00 PM" [(ngModel)]="sunday10PM"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                  </ion-item>  
+                <ion-item>
+                  <ion-label>Night <span>11:00 PM & up</span></ion-label>
+                  <ion-checkbox  slot="start" value="11:00 PM" [(ngModel)]="sunday11PM"  (ionChange)="selectsundy($event)"></ion-checkbox>
+                </ion-item>               
+                    </ion-list>
+              </div>
+              </ion-slide>
+            </ion-slides>
+          </div>
+        </ion-slide>
+            <!-- ==============  common interest  ============== -->
+        <ion-slide>
+            <div class="common-interest" >
+              <h2>Select your common interest</h2>
+              <ion-list>
+                <ion-item>
+                  <ion-label>Foodie</ion-label>
+          <ion-checkbox  slot="start" value="Foodie" (ionChange)="selectoffer_services($event)" [(ngModel)]="Foodie"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Sports Fan</ion-label>
+          <ion-checkbox  slot="start" value="Sports Fan" (ionChange)="selectoffer_services($event)" [(ngModel)]="Sports_Fan"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Great Outdoors</ion-label>
+          <ion-checkbox  slot="start" value="Great Outdoors" (ionChange)="selectoffer_services($event)" [(ngModel)]="Great_Outdoors"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Art Lover</ion-label>
+          <ion-checkbox  slot="start" value="Art Lover" (ionChange)="selectoffer_services($event)" [(ngModel)]="Art_Lover"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Animal Lover</ion-label>
+                  <ion-checkbox  slot="start" value="Animal Lover" (ionChange)="selectoffer_services($event)" [(ngModel)]="Animal_Lover"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Socialite</ion-label>
+                  <ion-checkbox  slot="start" value="Socialite" (ionChange)="selectoffer_services($event)" [(ngModel)]="Socialite"></ion-checkbox>
+                </ion-item>     
+                <ion-item>
+                  <ion-label>Athletic</ion-label>
+                  <ion-checkbox  slot="start" value="Athletic" (ionChange)="selectoffer_services($event)" [(ngModel)]="Athletic"></ion-checkbox>
+                </ion-item>  
+                <ion-item>
+                  <ion-label>Dancing & Nightlife</ion-label>
+                  <ion-checkbox  slot="start" value="Dancing & Nightlife" (ionChange)="selectoffer_services($event)" [(ngModel)]="Dancing_Nightlife"></ion-checkbox>
+                </ion-item>  
+                <ion-item>
+                  <ion-label>More Coffee</ion-label>
+                  <ion-checkbox  slot="start" value="More Coffee" (ionChange)="selectoffer_services($event)" [(ngModel)]="More_Coffee"></ion-checkbox>
+                </ion-item>     
+                <ion-item>
+                  <ion-label>Theater Nerd</ion-label>
+                  <ion-checkbox  slot="start" value="Theater Nerd" (ionChange)="selectoffer_services($event)" [(ngModel)]="Theater_Nerd"></ion-checkbox>
+                </ion-item>  
+                  </ion-list>
+            </div>
+
+          </ion-slide>
+
+
+                <!-- ==============  About  ============== -->
+             <ion-slide>
+                <div class="about" >
+                  <h2>Profile name and location</h2>
+                  <section>
+                    <ion-textarea auto-grow="true" type="text" placeholder="Name" [(ngModel)]="name" ></ion-textarea>
+                    <ion-textarea auto-grow="true" type="text" placeholder="Location" [(ngModel)]="shop_location" ></ion-textarea>
+                  </section>
+
+                  <h2>Give a snippet about yourself</h2>
+
+                  <div class="about-card">
+                    <div class="about-card-header" >
+                      <h3>This shows up in search results<span>{{snipptcharuse}}/{{snipptchar}}</span></h3>
+                    </div>
+                    <div class="about-card-content" >
+                        <ion-textarea type="text" placeholder="" [(ngModel)]="snipet"  autoGrow maxlength="300" (input)="checksnipt()" class="largearea"></ion-textarea>
+                    </div>
+                  </div>
+
+                  <h2>Write a short bio about yourself</h2>
+                  
+                  <div class="about-card">
+                    <div class="about-card-header" >
+                      <h3>This shows up on your profile<span>{{biocharuse}}/{{biochar}}</span></h3>
+                    </div>
+                    <div class="about-card-content" >
+                        <ion-textarea  type="text" placeholder="" [(ngModel)]="shop_about"  autoGrow maxlength="300" (input)="checkbio()" class="largearea"></ion-textarea>
+                    </div>
+                  </div>
+
+                </div>
+              </ion-slide>
+                      <!-- ==============  activities  ============== -->
+                    <ion-slide>
+                      <div class="activity" >
+                        <h2>Select your offered activities</h2>
+                        <ion-list>
+                          <ion-item>
+                            <ion-label>Open to Suggestions</ion-label>
+                            <ion-checkbox  slot="start"  value="Open to Suggestions"  (ionChange)="selectactv($event)" [(ngModel)]="Open_to_Suggestions"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Amusement park</ion-label>
+                            <ion-checkbox  slot="start" value="Amusement park" (ionChange)="selectactv($event)" [(ngModel)]="amusement_park"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Attend a conference/seminar</ion-label>
+                            <ion-checkbox  slot="start" value="Attend a conference/seminar" (ionChange)="selectactv($event)" [(ngModel)]="attend_a_conference"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Attend a Motorsport event</ion-label>
+                            <ion-checkbox  slot="start" value="Attend a Motorsport event" (ionChange)="selectactv($event)" [(ngModel)]="attend_a_motorsport_event"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Attend a party - Themed, Halloween, Christmas, New Year, company/office party</ion-label>
+                            <ion-checkbox  slot="start" value="Attend a party - Themed, Halloween, Christmas, New Year, company/office party" (ionChange)="selectactv($event)" [(ngModel)]="attend_a_party"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Attend a political event</ion-label>
+                            <ion-checkbox  slot="start" value="Attend a political event" (ionChange)="selectactv($event)" [(ngModel)]="attend_a_political_event"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Attend a Trivia night</ion-label>
+                            <ion-checkbox  slot="start" value="Attend a Trivia night" (ionChange)="selectactv($event)" [(ngModel)]="attend_a_trivia_night"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Ballroom dancing</ion-label>
+                            <ion-checkbox  slot="start" value="Ballroom dancing" (ionChange)="selectactv($event)" [(ngModel)]="ballroom_dancing"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Bingo</ion-label>
+                            <ion-checkbox  slot="start" value="Bingo" (ionChange)="selectactv($event)" [(ngModel)]="bingo"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Bonfire</ion-label>
+                            <ion-checkbox  slot="start" value="Bonfire" (ionChange)="selectactv($event)" [(ngModel)]="bonfire"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Book club</ion-label>
+                            <ion-checkbox  slot="start" value="Book club" (ionChange)="selectactv($event)" [(ngModel)]="book_club"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Bungee jumping</ion-label>
+                            <ion-checkbox  slot="start" value="Bungee jumping" (ionChange)="selectactv($event)" [(ngModel)]="bungee_jumping"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Canoeing</ion-label>
+                            <ion-checkbox  slot="start" value="Canoeing" (ionChange)="selectactv($event)" [(ngModel)]="canoeing"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Carve pumpkins</ion-label>
+                            <ion-checkbox  slot="start" value="Carve pumpkins" (ionChange)="selectactv($event)" [(ngModel)]="carve_pumpkins"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Christmas Caroling</ion-label>
+                            <ion-checkbox  slot="start" value="Christmas Caroling" (ionChange)="selectactv($event)" [(ngModel)]="christmas_caroling"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>City tour</ion-label>
+                            <ion-checkbox  slot="start" value="City tour" (ionChange)="selectactv($event)" [(ngModel)]="city_tour"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Escape rooms</ion-label>
+                            <ion-checkbox  slot="start" value="Escape rooms" (ionChange)="selectactv($event)" [(ngModel)]="escape_rooms"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Floating on tubes</ion-label>
+                            <ion-checkbox  slot="start" value="Floating on tubes" (ionChange)="selectactv($event)" [(ngModel)]="floating_on_tubes"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Fun runs/walks</ion-label>
+                            <ion-checkbox  slot="start" value="Fun runs/walks" (ionChange)="selectactv($event)" [(ngModel)]="fun_runs"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Get dessert</ion-label>
+                            <ion-checkbox  slot="start" value="Get dessert" (ionChange)="selectactv($event)" [(ngModel)]="get_dessert"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Go look at Christmas lights</ion-label>
+                            <ion-checkbox  slot="start" value="Go look at Christmas lights" (ionChange)="selectactv($event)" [(ngModel)]="go_look_at_christmas_lights"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Go to a bbg</ion-label>
+                            <ion-checkbox  slot="start" value="Go to a bbg" (ionChange)="selectactv($event)" [(ngModel)]="go_to_a_bbg"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Go to a dance/prom</ion-label>
+                            <ion-checkbox  slot="start" value="Go to a dance/prom" (ionChange)="selectactv($event)" [(ngModel)]="go_to_a_dance"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Go to a festival</ion-label>
+                            <ion-checkbox  slot="start" value="Go to a festival" (ionChange)="selectactv($event)" [(ngModel)]="go_to_a_festival"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Go to a formal event</ion-label>
+                            <ion-checkbox  slot="start" value="Go to a formal event" (ionChange)="selectactv($event)" [(ngModel)]="go_to_a_formal_event"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Go to a show or convention - sci-fi convention, car show, boat show, comic convention, psychics fair, dog show, etc.</ion-label>
+                            <ion-checkbox  slot="start" value="Go to a show or convention - sci-fi convention, car show, boat show, comic convention, psychics fair, dog show, etc." (ionChange)="selectactv($event)" [(ngModel)]="go_to_a_show"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Go to an aquarium</ion-label>
+                            <ion-checkbox  slot="start" value="Go to an aquarium" (ionChange)="selectactv($event)" [(ngModel)]="go_to_an_aquarium"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Go to church</ion-label>
+                            <ion-checkbox  slot="start" value="Go to church" (ionChange)="selectactv($event)" [(ngModel)]="go_to_church"></ion-checkbox>
+                        </ion-item>
+                        
+                        
+                        <ion-item>
+                            <ion-label>Going for a walk with pets</ion-label>
+                            <ion-checkbox  slot="start" value="Going for a walk with pets" (ionChange)="selectactv($event)" [(ngModel)]="going_for_a_walk_with_pets"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Group dates</ion-label>
+                            <ion-checkbox  slot="start" value="Group dates" (ionChange)="selectactv($event)" [(ngModel)]="group_dates"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Group Game night</ion-label>
+                            <ion-checkbox  slot="start" value="Group Game night" (ionChange)="selectactv($event)" [(ngModel)]="group_game_night"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Home decorating</ion-label>
+                            <ion-checkbox  slot="start" value="Home decorating" (ionChange)="selectactv($event)" [(ngModel)]="home_decorating"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Horse back riding</ion-label>
+                            <ion-checkbox  slot="start" value="Horse back riding" (ionChange)="selectactv($event)" [(ngModel)]="horse_back_riding"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Hot Air balloon</ion-label>
+                            <ion-checkbox  slot="start" value="Hot Air balloon" (ionChange)="selectactv($event)" [(ngModel)]="hot_air_balloon"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Hunting</ion-label>
+                            <ion-checkbox  slot="start" value="Hunting" (ionChange)="selectactv($event)" [(ngModel)]="hunting"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Ice skating</ion-label>
+                            <ion-checkbox  slot="start" value="Ice skating" (ionChange)="selectactv($event)" [(ngModel)]="ice_skating"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Kayaking</ion-label>
+                            <ion-checkbox  slot="start" value="Kayaking" (ionChange)="selectactv($event)" [(ngModel)]="kayaking"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Laser tag</ion-label>
+                            <ion-checkbox  slot="start" value="Laser tag" (ionChange)="selectactv($event)" [(ngModel)]="laser_tag"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Line dancing</ion-label>
+                            <ion-checkbox  slot="start" value="Line dancing" (ionChange)="selectactv($event)" [(ngModel)]="line_dancing"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Marathons or races</ion-label>
+                            <ion-checkbox  slot="start" value="Marathons or races" (ionChange)="selectactv($event)" [(ngModel)]="marathons"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Mushroom hunting</ion-label>
+                            <ion-checkbox  slot="start" value="Mushroom hunting" (ionChange)="selectactv($event)" [(ngModel)]="mushroom_hunting"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Photography</ion-label>
+                            <ion-checkbox  slot="start" value="Photography" (ionChange)="selectactv($event)" [(ngModel)]="photography"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Play musical instruments-Jam session</ion-label>
+                            <ion-checkbox  slot="start" value="Play musical instruments-Jam session" (ionChange)="selectactv($event)" [(ngModel)]="play_musical"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Random acts of kindness</ion-label>
+                            <ion-checkbox  slot="start" value="Random acts of kindness" (ionChange)="selectactv($event)" [(ngModel)]="random_acts_of_kindness"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Reunion</ion-label>
+                            <ion-checkbox  slot="start" value="Reunion" (ionChange)="selectactv($event)" [(ngModel)]="reunion"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Roller skating/rollerblading</ion-label>
+                            <ion-checkbox  slot="start" value="Roller skating/rollerblading" (ionChange)="selectactv($event)" [(ngModel)]="roller_skating"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Scuba diving</ion-label>
+                            <ion-checkbox  slot="start" value="Scuba diving" (ionChange)="selectactv($event)" [(ngModel)]="scuba_diving"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Sightseeing</ion-label>
+                            <ion-checkbox  slot="start" value="Sightseeing" (ionChange)="selectactv($event)" [(ngModel)]="sightseeing"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Sky diving</ion-label>
+                            <ion-checkbox  slot="start" value="Sky diving" (ionChange)="selectactv($event)" [(ngModel)]="sky_diving"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Sledding</ion-label>
+                            <ion-checkbox  slot="start" value="Sledding" (ionChange)="selectactv($event)" [(ngModel)]="sledding"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Studying - tutoring</ion-label>
+                            <ion-checkbox  slot="start" value="Studying - tutoring" (ionChange)="selectactv($event)" [(ngModel)]="studying"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Take a class together - dancing, pottery, art, cooking</ion-label>
+                            <ion-checkbox  slot="start" value="Take a class together - dancing, pottery, art, cooking" (ionChange)="selectactv($event)" [(ngModel)]="take_a_class_together"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Thrifting</ion-label>
+                            <ion-checkbox  slot="start" value="Thrifting" (ionChange)="selectactv($event)" [(ngModel)]="thrifting"></ion-checkbox>
+                        </ion-item>
+                        
+                        <ion-item>
+                            <ion-label>Tubing</ion-label>
+                            <ion-checkbox  slot="start" value="Tubing" (ionChange)="selectactv($event)" [(ngModel)]="tubing"></ion-checkbox>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Watch fireworks</ion-label>
+                            <ion-checkbox  slot="start" value="Watch fireworks" (ionChange)="selectactv($event)" [(ngModel)]="watch_fireworks"></ion-checkbox>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Watch sunset/sunrise</ion-label>
+                            <ion-checkbox  slot="start" value="Watch sunset/sunrise" (ionChange)="selectactv($event)" [(ngModel)]="watch_sunset"></ion-checkbox>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Water park</ion-label>
+                            <ion-checkbox  slot="start" value="Water park" (ionChange)="selectactv($event)" [(ngModel)]="water_park"></ion-checkbox>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Wingman/wingwoman</ion-label>
+                            <ion-checkbox  slot="start" value="Wingman/wingwoman" (ionChange)="selectactv($event)" [(ngModel)]="wingman"></ion-checkbox>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Wood working</ion-label>
+                            <ion-checkbox  slot="start" value="Wood working" (ionChange)="selectactv($event)" [(ngModel)]="wood_working"></ion-checkbox>
+                        </ion-item>
+                          </ion-list>
+                      </div>
+                    </ion-slide>
+                    </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<footer>
+  <ion-button expand="block" (click)="updateprofile()" class="continue">Save</ion-button>
+</footer>

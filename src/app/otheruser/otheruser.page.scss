@@ -1,0 +1,320 @@
+.header_sec {
+    ion-toolbar {
+        --background: transparent !important;
+        --border-width: 0px;
+        ion-back-button {
+            margin-left: 12px;
+        }
+    }
+    ion-title {
+        color: var(--ion-color-primary-contrast);
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+}
+
+ion-content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.btn_sec {
+    max-width: 95%;
+    width: 100%;
+    margin: auto;
+    // margin-bottom: 20px;
+    p {
+        text-align: center;
+        background: var(--ion-border-red-color);
+        padding: 18px;
+        margin: 0;
+        border-radius: 50px;
+        text-transform: uppercase;
+        font-size: 16px;
+        box-shadow: 0px 0px 5px #d2d2d2;
+        // font-family: SF-UI-Display-Medium;
+        color: var(--ion-color-primary-contrast);
+    }
+}
+
+.bg_shop {
+    // position: absolute;
+    // top: 0;
+    width: 100%;
+    height: 220px;
+    text-align: center;
+    .img_sec {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+    .inner_img {
+        width: 175px;
+        height: 175px;
+        border-radius: 100%;
+        position: relative;
+        bottom: 95px;
+        border: 1px solid var(--ion-border-red-color);
+        padding: 6px;
+    }
+}
+
+ion-grid {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    margin-top: 0px;
+}
+
+.User_details {
+    text-align: center;
+    h3 {
+        margin-top: 0px;
+        text-transform: uppercase;
+        // font-family: SF-UI-Display-Bold !important;
+        letter-spacing: 1px;
+        margin-bottom: 0;
+    }
+    p {
+        margin-top: 4px;
+        font-size: 14px;
+        color: var(--ion-gray);
+        ion-icon {
+            font-size: 16px;
+            position: relative;
+            top: 3px;
+        }
+    }
+}
+
+.contact_img {
+    img {
+        max-width: 38px;
+        box-shadow: 0px 0px 4px #dcdcdc;
+        border-radius: 100%;
+    }
+    p {
+        margin-top: 2px;
+        margin-bottom: 2px;
+        font-size: 12px;
+    }
+}
+
+.shop_sec {
+    width: 100%;
+    max-width: 95%;
+    margin: auto;
+    h5 {
+        position: relative;
+        padding-bottom: 12px;
+        // font-family: SF-UI-Display-Semibold !important;
+        margin-top: 5px;
+    }
+    h5:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        text-align: center;
+        border-bottom: 2px solid;
+        width: 45px !important;
+        bottom: 0;
+        margin: auto;
+        left: 0;
+        color: var(--ion-border-red-color);
+    }
+    p {
+        font-size: 12px;
+        line-height: 20px;
+        color: var(--ion-gray);
+        margin-bottom: 0px;
+        span {
+            color: var(--ion-border-red-color);
+        }
+    }
+}
+
+.img_scroll {
+    ul {
+        padding: 0;
+        list-style-type: none;
+        white-space: nowrap;
+        overflow: scroll;
+        margin-bottom: 0;
+        li {
+            display: inline-block;
+            white-space: nowrap !important;
+            img {
+                max-width: 75px;
+                width: 100%;
+                height: 75px;
+                border-radius: 8px;
+                padding: 3px;
+            }
+        }
+    }
+}
+
+.about_com {
+    white-space: pre-line;
+}
+
+ion-list.profile-activity {
+    margin-top: -66px;
+    background: transparent;
+    padding: 0;
+}
+
+ion-item.item-label {
+    --background: transparent;
+}
+
+ion-list.profile-activity button {
+    background: #42d889;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+ion-list.profile-activity span {
+    display: block;
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+ion-list.profile-activity ion-thumbnail {
+    width: 120px;
+    height: 120px;
+    --border-radius: 80px;
+    background: #000;
+    padding: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+}
+
+ion-list.profile-activity ion-item {
+    --inner-border-width: 0px 0px 0px 0px;
+    --padding-start: 30px;
+    --padding-end: 10px;
+}
+
+ion-list.profile-activity h3 {
+    font-size: 24px;
+    font-family: "SF UI Display" !important;
+}
+
+ion-list.profile-activity label {
+    font-size: 16px;
+    font-family: "SF UI Display" !important;
+}
+
+ion-list.profile-activity label ion-img {
+    width: 20px;
+    float: left;
+    margin-right: 5px;
+}
+
+ion-row.user-detail-tab {
+    border-top: 1px solid #c2c2c2;
+    border-bottom: 1px solid #c2c2c2;
+    margin-top: 10px;
+}
+
+ion-row.user-detail-tab ion-col {
+    padding: 10px;
+}
+
+ion-row.user-detail-tab ion-col:nth-child(2) {
+    border-left: 1px solid #c2c2c2;
+    border-right: 1px solid #c2c2c2;
+    padding: 10px;
+}
+
+.user-detail-tab ion-img {
+    width: 16px;
+    float: left;
+    margin-right: 5px;
+}
+
+.user-detail-tab label {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    font-family: "SF UI Display" !important;
+}
+
+.user-detail-tab span {
+    font-size: 12px;
+    background: transparent;
+    border-radius: 0;
+    padding: 0px;
+    font-family: "SF UI Display" !important;
+}
+
+ion-card.welcom-text {
+    margin: 0;
+    box-shadow: none;
+    padding: 0 10px;
+    font-family: "SF UI Display" !important;
+}
+
+ion-card.welcom-text ion-card-content {
+    padding: 0;
+    font-size: 16px;
+    font-family: "SF UI Display" !important;
+}
+
+ion-card-header {
+    padding: 16px 0 8px;
+    color: #000;
+    font-size: 20px;
+    font-family: "SF UI Display" !important;
+}
+
+ion-list.plan-activity ion-list-header {
+    border-bottom: 1px solid #dcdcdc;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+ion-list.plan-activity ion-item {
+    --padding-start: 0;
+    --background: #093168;
+    --inner-border-width: 0px 0px 0px 0px;
+    border-radius: 30px;
+    --min-height: 48px;
+    margin: 0 10px 10px;
+    --padding-start: 20px;
+    --padding-end: 0px;
+    --inner-padding-end: 2px;
+    color: #fff;
+    font-size: 16px;
+}
+
+ion-list.plan-activity ion-item ion-label {
+    font-family: "SF UI Display" !important;
+}
+
+ion-list.plan-activity span {
+    width: auto;
+    height: 44px;
+    background: #fff;
+    border-radius: 22px;
+    padding: 9px;
+    color: #093167;
+    font-weight: bold;
+    line-height: 28px;
+    font-family: "SF UI Display" !important;
+    min-width: 44px;
+    text-align: center;
+}
+
+ion-list.plan-activity ion-list-header h3 {
+    width: 100%;
+    font-size: 16px;
+    text-transform: capitalize;
+    letter-spacing: 0;
+}
